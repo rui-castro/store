@@ -184,6 +184,11 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        /*
+         * See: https://github.com/fideloper/TrustedProxy
+         */
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+
     ],
 
     /*
