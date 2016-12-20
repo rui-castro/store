@@ -4,13 +4,15 @@
  * Parse env variable DATABASE_URL and set separate values to be used bellow.
  * See: https://mattstauffer.co/blog/laravel-on-heroku-using-a-postgresql-database
  */
-$url = parse_url(getenv("DATABASE_URL"));
+if (getenv("DATABASE_URL")) {
+    $url = parse_url(getenv("DATABASE_URL"));
 
-putenv("DB_HOST=".$url["host"]);
-putenv("DB_PORT=".$url["port"]);
-putenv("DB_DATABASE=".substr($url["path"], 1));
-putenv("DB_USERNAME=".$url["user"]);
-putenv("DB_PASSWORD=".$url["pass"]);
+    if (array_key_exists("host", $url)) { putenv("DB_HOST=".$url["host"]); }
+    if (array_key_exists("port", $url)) { putenv("DB_PORT=".$url["port"]); }
+    if (array_key_exists("path", $url)) { putenv("DB_DATABASE=".substr($url["path"], 1)); }
+    if (array_key_exists("user", $url)) { putenv("DB_USERNAME=".$url["user"]); }
+    if (array_key_exists("pass", $url)) { putenv("DB_PASSWORD=".$url["pass"]); }
+}
 
 return [
 

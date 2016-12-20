@@ -1,0 +1,2 @@
+INSERT INTO options (id, name, created_at, updated_at) VALUES (1, 'Color', '1482192000000', '1482192000000');
+INSERT INTO options (id, name, created_at, updated_at) VALUES (2, 'Karat', '1482192000000', '1482192000000');
