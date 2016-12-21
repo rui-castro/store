@@ -3,6 +3,7 @@
 namespace Store;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -40,7 +41,8 @@ class Product extends Model
      */
     public function minimumPrice()
     {
-        return $this->variants()->orderBy('price', 'asc')->first()->price;
+        $variant = $this->variants()->orderBy('price', 'asc')->first();
+        return $variant ? $variant->price : null;
     }
 
     /**
@@ -48,6 +50,17 @@ class Product extends Model
      */
     public function maximumPrice()
     {
-        return $this->variants()->orderBy('price', 'desc')->first()->price;
+        $variant = $this->variants()->orderBy('price', 'desc')->first();
+        return $variant ? $variant->price : null;
+    }
+
+    /**
+     * Get the product image URL.
+     *
+     * @return string
+     */
+    public function imageURL()
+    {
+        return Storage::url($this->image_file_path);
     }
 }

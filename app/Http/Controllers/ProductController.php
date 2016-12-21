@@ -2,8 +2,8 @@
 
 namespace Store\Http\Controllers;
 
-use Store\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+use Store\Repositories\ProductRepository;
 
 class ProductController extends Controller
 {
@@ -33,7 +33,35 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         return view('products.index', [
-            'products' => $this->products->all()
+            'products' => $this->products->allWithVariants()
         ]);
+    }
+
+    /**
+     * Display a form to create a new product.
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function create(Request $request)
+    {
+        return view('products.create');
+    }
+
+    /**
+     * Create a new product.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+        ]);
+
+        $product = $this->products->create($request);
+
+        return redirect('/products');
     }
 }
