@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace Store\Repositories;
 
-use App\Product;
+use Store\Product;
 
 class ProductRepository
 {

@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Store\Providers\AppServiceProvider::class,
+        Store\Providers\AuthServiceProvider::class,
+        // Store\Providers\BroadcastServiceProvider::class,
+        Store\Providers\EventServiceProvider::class,
+        Store\Providers\RouteServiceProvider::class,
 
         /*
          * Laravel IDE helper

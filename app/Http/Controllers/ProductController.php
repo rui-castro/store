@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Store\Http\Controllers;
 
-use App\Repositories\ProductRepository;
+use Store\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
