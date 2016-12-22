@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $products = factory(Product::class, 50)->create()->each(function ($product) {
+        $products = factory(Product::class, 20)->create()->each(function ($product) {
             $file_names = ['ECL000177.jpg', 'EPL000144.jpg'];
             $image_file_name = $file_names[array_rand($file_names)];
             $image_file_path = "private/seeds/images/$image_file_name";
