@@ -16,7 +16,6 @@ class CreateVariantsTable extends Migration
         Schema::create('variants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->index();
-            $table->string('sku')->index();
             $table->float('price');
             $table->timestamps();
         });

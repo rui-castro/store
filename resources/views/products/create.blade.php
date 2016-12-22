@@ -13,7 +13,14 @@
         <form action="{{ url('products') }}" method="POST" class="form" enctype="multipart/form-data">
         {{ csrf_field() }}
 
-        <!-- Product Name -->
+        <!-- Product Reference -->
+            <div class="form-group">
+                <label for="product-reference" class="control-label">Reference</label>
+                <input type="text" name="reference" id="product-reference" class="form-control"
+                       value="{{ old('reference') }}">
+            </div>
+
+            <!-- Product Name -->
             <div class="form-group">
                 <label for="product-name" class="control-label">Name</label>
                 <input type="text" name="name" id="product-name" class="form-control"
