@@ -61,7 +61,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
         ]);
 
-        $product = $this->products->create($request);
+        $product = $this->products->create($request->all());
 
         return redirect('/products');
     }

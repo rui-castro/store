@@ -4,6 +4,7 @@ namespace Store\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Store\Product;
 
@@ -27,18 +28,26 @@ class ProductRepository
 
     /**
      * Create a new Product from a Request.
-     * @param $request Request the request.
+     * @param $attributes Product attributes.
      * @return Product the created Product.
      */
-    public function create($request)
+    public static function create($attributes)
     {
-        $product = Product::create($request->all());
+        return ProductRepository::attachImage(Product::create($attributes), $attributes['image']);
+    }
 
-        $uploadedFile = $request->file('image');
-        $product->image_file_path = Storage::putFile("products/{$product->id}/images", $uploadedFile);
-        $product->image_file_name = $uploadedFile->getClientOriginalName();
-        $product->image_file_size = $uploadedFile->getClientSize();
-        $product->image_content_type = $uploadedFile->getClientMimeType();
+    /**
+     * Create a new Product from a Request.
+     * @param $product Product the Product.
+     * @param $image UploadedFile the image.
+     * @return Product the Product.
+     */
+    public static function attachImage($product, $image)
+    {
+        $product->image_file_path = Storage::putFile("products/{$product->id}/images", $image);
+        $product->image_file_name = $image->getClientOriginalName();
+        $product->image_file_size = $image->getClientSize();
+        $product->image_content_type = $image->getClientMimeType();
         $product->image_updated_at = Carbon::now();
         $product->save();
 

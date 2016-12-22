@@ -20,6 +20,7 @@ class VariantValue extends Model
      */
     protected $casts = [
         'variant_id' => 'int',
+        'option_id' => 'int',
         'option_value_id' => 'int',
     ];
 
