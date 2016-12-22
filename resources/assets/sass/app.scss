@@ -9,10 +9,8 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-body {
-  padding-top: 100px;
-}
+@import "layouts/app";
+@import "layouts/sidebar";
 
-.navbar-brand > img {
-  height: 25px;
-}
+@import "products/filter";
+

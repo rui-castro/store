@@ -21,3 +21,5 @@ const app = new Vue({
     el: '#app'
 });
 */
+
+require('./products/filter');
