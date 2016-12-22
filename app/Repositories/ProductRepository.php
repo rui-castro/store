@@ -44,7 +44,7 @@ class ProductRepository
      */
     public static function attachImage($product, $image)
     {
-        $product->image_file_path = Storage::putFile("products/{$product->id}/images", $image);
+        $product->image_file_path = Storage::putFile("products/{$product->id}/images", $image, 'public');
         $product->image_file_name = $image->getClientOriginalName();
         $product->image_file_size = $image->getClientSize();
         $product->image_content_type = $image->getClientMimeType();
