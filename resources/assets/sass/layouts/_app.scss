@@ -14,13 +14,17 @@ body {
     .navbar-bag {
       float: right;
       .bag {
+        .glyphicon {
+          color: $text-color;
+        }
         .badge {
-          background-color: #777;
+          background-color: $text-color;
           font-size: 10px;
         }
       }
       .bag:hover,
       .bag:focus {
+        background-color: transparent;
         .glyphicon {
           color: $brand-primary;
         }
