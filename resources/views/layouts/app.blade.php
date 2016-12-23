@@ -36,11 +36,11 @@
             </ul>
         </div>
         -->
-        <ul class="nav navbar-nav navbar-right navbar-bag">
+        <ul class="nav navbar-right navbar-bag">
             <li>
                 <a href="#" class="bag">
-                    <span class="badge">0</span>
                     <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <span class="badge">0</span>
                 </a>
             </li>
         </ul>

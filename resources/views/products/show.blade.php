@@ -7,14 +7,14 @@
         <div class="product row">
             <div class="col-xs-12 col-md-8">
                 <img class="img-responsive image" src="{{ $product->imageURL() }}"/>
-                @if ($product->description)
-                    <div class="description">{{ $product->description }}</div>
-                @endif
             </div>
             <div class="col-xs-12 col-md-4">
                 <h1 class="name">{{ $product->name }}</h1>
                 <h2 class="reference">{{ $product->reference }}</h2>
             <!--<h3 class="price">{{ $product->price }} €</h3>-->
+                @if ($product->description)
+                    <div class="description">{{ $product->description }}</div>
+                @endif
                 <form>
                     <div class="form-group">
                         <label for="select-color">Color</label>
