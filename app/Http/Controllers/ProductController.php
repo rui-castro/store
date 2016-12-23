@@ -3,6 +3,7 @@
 namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Store\Repositories\ProductRepository;
 
 class ProductController extends Controller
@@ -33,7 +34,11 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         return view('products.index', [
-            'products' => $this->products->allWithVariants()
+            'products' => $this->products->allWithVariantsWhere($request),
+            'filters' => [
+                $this->products->columnFilter($request, 'collection', 'Collection'),
+                $this->products->columnFilter($request, 'type', 'Typology')
+            ]
         ]);
     }
 
@@ -51,7 +56,7 @@ class ProductController extends Controller
     /**
      * Create a new product.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -65,4 +70,5 @@ class ProductController extends Controller
 
         return redirect('/products');
     }
+
 }

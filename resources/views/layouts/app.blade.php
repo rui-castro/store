@@ -16,7 +16,7 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-main">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img alt="Galeiras" src="{{ asset('images/logo-211x51.png') }}"/>
             </a>
             <!--

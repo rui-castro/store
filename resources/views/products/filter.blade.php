@@ -1,58 +1,16 @@
-<div class="filter">
+@if (count($filter['items']) > 0)
     <div class="filter-group">
-        <h4 data-toggle="collapse" data-target="#group-collection">
+        <h4 data-toggle="collapse" data-target="#group-{{ $filter['name'] }}">
             <span class="glyphicon glyphicon-triangle-bottom parent-expanded"></span>
             <span class="glyphicon glyphicon-triangle-right parent-collapsed"></span>
-            Collections
+            {{ $filter['title'] }}
         </h4>
-        <div id="group-collection" class="list-group collapse in">
-            @foreach (["SWEETNESS", "ORGANIC", "OPTIMISTIC"] as $item)
-                <a class="list-group-item" href="#">
-                    {{ $item }} <span class="badge">3</span>
+        <div id="group-{{ $filter['name'] }}" class="list-group collapse in">
+            @foreach ($filter['items'] as $item)
+                <a class="list-group-item" href="{{ $item['url'] }}">
+                    {{ $item['name'] }} @if ($item['count']>0)<span class="badge">{{ $item['count']}}</span>@endif
                 </a>
             @endforeach
         </div>
     </div>
-    <div class="filter-group">
-        <h4 data-toggle="collapse" data-target="#group-type">
-            <span class="glyphicon glyphicon-triangle-bottom parent-expanded"></span>
-            <span class="glyphicon glyphicon-triangle-right parent-collapsed"></span>
-            Typology
-        </h4>
-        <div id="group-type" class="list-group collapse in">
-            @foreach (["Brincos", "Aneis", "Colares", "Pulseiras"] as $item)
-                <a class="list-group-item" href="#">
-                    {{ $item }} <span class="badge">3</span>
-                </a>
-            @endforeach
-        </div>
-    </div>
-    <div class="filter-group">
-        <h4 data-toggle="collapse" data-target="#group-color">
-            <span class="glyphicon glyphicon-triangle-bottom parent-expanded"></span>
-            <span class="glyphicon glyphicon-triangle-right parent-collapsed"></span>
-            Colors
-        </h4>
-        <div id="group-color" class="list-group collapse in">
-            @foreach (["Yellow", "White", "Pink"] as $item)
-                <a class="list-group-item" href="#">
-                    {{ $item }} <span class="badge">3</span>
-                </a>
-            @endforeach
-        </div>
-    </div>
-    <div class="filter-group">
-        <h4 data-toggle="collapse" data-target="#group-karat">
-            <span class="glyphicon glyphicon-triangle-bottom parent-expanded"></span>
-            <span class="glyphicon glyphicon-triangle-right parent-collapsed"></span>
-            Karats
-        </h4>
-        <div id="group-karat" class="list-group collapse in">
-            @foreach (["8", "9", "14", "18", "19.2"] as $item)
-                <a class="list-group-item" href="#">
-                    {{ $item }} <span class="badge">3</span>
-                </a>
-            @endforeach
-        </div>
-    </div>
-</div>
+@endif

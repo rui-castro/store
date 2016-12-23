@@ -3,12 +3,14 @@
 @include('common.errors')
 
 @section('sidebar')
-    @include('products.filter')
-    @each('products.filter_item', /*$filters*/[], 'filter')
+    <div class="filter">
+        @each('products.filter', $filters, 'filter')
+    </div>
 @endsection
 
 @section('maincontent')
     @if (count($products) > 0)
+        <h4>{{ count($products) }} products</h4>
         <div class="row">
             @foreach ($products as $product)
                 <div class="product col-xs-12 col-sm-6 col-md-4">
@@ -24,5 +26,7 @@
                 </div>
             @endforeach
         </div>
+    @else
+        <h4>No products!</h4>
     @endif
 @endsection
