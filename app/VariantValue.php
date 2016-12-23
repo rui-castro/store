@@ -43,9 +43,25 @@ class VariantValue extends Model
     /**
      * Get the OptionValue that owns the VariantValue.
      */
-    public function value()
+    public function optionValue()
     {
         return $this->belongsTo(OptionValue::class);
+    }
+
+    /**
+     * Get the name of the Option.
+     */
+    public function getNameAttribute()
+    {
+        return $this->option->name;
+    }
+
+    /**
+     * Get the value of the OptionValue.
+     */
+    public function getValueAttribute()
+    {
+        return $this->optionValue->value;
     }
 
 }

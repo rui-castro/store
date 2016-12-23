@@ -3,7 +3,6 @@
 namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Store\Repositories\ProductRepository;
 
 class ProductController extends Controller
@@ -50,8 +49,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $product = $this->products->get($id);
         return view('products.show', [
-            'product' => $this->products->get($id),
+            'product' => $product,
+            'variant' => $product->variants()->first()
         ]);
     }
 

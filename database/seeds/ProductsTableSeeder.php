@@ -46,7 +46,7 @@ class ProductsTableSeeder extends Seeder
                 foreach ($option_karat->values()->get() as $karat) {
                     $variant = Variant::create([
                         'product_id' => $product->id,
-                        'price' => 0
+                        'price' => rand(500, 1500)
                     ]);
                     VariantValue::create([
                         'variant_id' => $variant->id,

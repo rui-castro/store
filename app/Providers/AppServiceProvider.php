@@ -4,6 +4,7 @@ namespace Store\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Route;
+use Store\Repositories\BagRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,8 +21,10 @@ class AppServiceProvider extends ServiceProvider
          * See: https://laravel.com/api/5.3/Illuminate/Routing/Router.html#method_currentRouteName
          */
         app('view')->composer('*', function ($view) {
-            list($controller, $action) = explode('.', Route::currentRouteName());
-            $view->with(compact('controller', 'action'));
+            $route_parts = explode('.', Route::currentRouteName());
+            $view->with(['route_parts' => implode(' ', $route_parts)]);
+            // Inject bag into the view
+            $view->with(['bag' => BagRepository::getCurrent()]);
         });
     }
 

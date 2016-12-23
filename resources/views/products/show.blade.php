@@ -6,33 +6,31 @@
     <div class="container">
         <div class="product row">
             <div class="col-xs-12 col-md-8">
-                <img class="img-responsive image" src="{{ $product->imageURL() }}"/>
+                <img class="img-responsive image" src="{{ $product->imageURL }}"/>
             </div>
             <div class="col-xs-12 col-md-4">
                 <h1 class="name">{{ $product->name }}</h1>
                 <h2 class="reference">{{ $product->reference }}</h2>
-            <!--<h3 class="price">{{ $product->price }} €</h3>-->
+                <h3 class="price"><span class="value">{{ $variant->price + 0 }}</span> €</h3>
                 @if ($product->description)
                     <div class="description">{{ $product->description }}</div>
                 @endif
-                <form>
+                <form action="{{ route('bag_items.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input name="return_url" type="hidden" value="{{ route('products.show', ['id' => $product->id]) }}" />
                     <div class="form-group">
-                        <label for="select-color">Color</label>
-                        <select name="color" id="select-color" class="form-control">
-                            <option value="1">Yellow</option>
-                            <option value="2">White</option>
-                            <option value="3">Pink</option>
+                        <label for="select-variant">Variant</label>
+                        <select name="variant_id" id="select-variant" class="form-control">
+                            @foreach($product->variants as $product_variant)
+                                <option value="{{ $product_variant->id }}"
+                                        data-price="{{ $product_variant->price + 0 }}
+                                        {{ ($product_variant->id == $variant->id) ? 'selected' : '' }}">{{ $product_variant->valuesAsString() }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="select-karat">Karat</label>
-                        <select name="karat" id="select-karat" class="form-control">
-                            <option value="4">8</option>
-                            <option value="5" selected>9</option>
-                            <option value="6">14</option>
-                            <option value="7">18</option>
-                            <option value="8">19.2</option>
-                        </select>
+                        <label for="quantity">Quantity</label>
+                        <input name="quantity" type="number" step="1" value="1" id="quantity" class="form-control"/>
                     </div>
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Add to bag</button>
                 </form>

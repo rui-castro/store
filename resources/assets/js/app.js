@@ -23,3 +23,4 @@ const app = new Vue({
 */
 
 require('./products/filter');
+require('./products/show');

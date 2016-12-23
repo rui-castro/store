@@ -1,0 +1,52 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+body.bags.show {
+  h1 {
+    margin: 0px;
+    font-size: 20px;
+    color: $header-text-color;
+  }
+  table {
+    thead {
+      .options {
+        text-align: center;
+      }
+    }
+    .bag_item {
+      td {
+        vertical-align: middle;
+      }
+      .image img {
+        max-width: 100px;
+      }
+      .options {
+        dl {
+          margin-bottom: 0px;
+        }
+      }
+    }
+    tfoot tr {
+      font-weight: bold;
+      .total {
+        text-align: right;
+      }
+    }
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  body.bags.show {
+    h1 {
+      font-size: 27px;
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+}

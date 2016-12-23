@@ -12,7 +12,7 @@
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="{{ $controller }} {{ $action }}">
+<body class="{{ $route_parts }}">
 <nav class="navbar navbar-default navbar-fixed-top navbar-main">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -38,9 +38,9 @@
         -->
         <ul class="nav navbar-right navbar-bag">
             <li>
-                <a href="#" class="bag">
+                <a href="{{ route('bags.show') }}" class="bag">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
-                    <span class="badge">0</span>
+                    <span class="badge">{{ $bag->items()->count() }}</span>
                 </a>
             </li>
         </ul>

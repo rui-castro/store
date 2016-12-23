@@ -64,4 +64,15 @@ class Product extends Model
     {
         return Storage::url($this->image_file_path);
     }
+
+    /**
+     * Get the product image URL.
+     *
+     * @return string
+     */
+    public function getImageURLAttribute()
+    {
+        return Storage::url($this->image_file_path);
+    }
+
 }

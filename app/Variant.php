@@ -11,7 +11,7 @@ class Variant extends Model
      *
      * @var array
      */
-    protected $fillable = ['sku', 'price'];
+    protected $fillable = ['price'];
 
     /**
      * The attributes that should be cast to native types.
@@ -36,6 +36,18 @@ class Variant extends Model
     public function values()
     {
         return $this->hasMany(VariantValue::class);
+    }
+
+    /**
+     * Get a string with the information about the Variant values.
+     */
+    public function valuesAsString()
+    {
+        $values = array();
+        foreach ($this->values as $value) {
+            $values[] = "{$value->name}: {$value->value}";
+        }
+        return implode(" | ", $values);
     }
 
 }
