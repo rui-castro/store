@@ -43,6 +43,19 @@ class ProductController extends Controller
     }
 
     /**
+     * Display a product.
+     *
+     * @param $id integer the product ID.
+     * @return Response
+     */
+    public function show($id)
+    {
+        return view('products.show', [
+            'product' => $this->products->get($id),
+        ]);
+    }
+
+    /**
      * Display a form to create a new product.
      *
      * @param  Request $request

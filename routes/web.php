@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('products', 'ProductController',
-    ['only' => ['index', 'create', 'store']]);
+    ['only' => ['index', 'show', 'create', 'store']]);

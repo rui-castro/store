@@ -41,6 +41,17 @@ class ProductRepository
     }
 
     /**
+     * Get a product.
+     *
+     * @param $id integer the product ID.
+     * @return Product
+     */
+    public function get($id)
+    {
+        return Product::find($id);
+    }
+
+    /**
      * @param $request Request the request.
      * @param $column string the column name.
      * @param $title string the column title.

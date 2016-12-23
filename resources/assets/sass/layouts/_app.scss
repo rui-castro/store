@@ -3,10 +3,28 @@
 
 body {
   padding-top: 50px;
-}
-
-.navbar-brand > img {
-  height: 25px;
+  .navbar-main {
+    .navbar-brand > img {
+      height: 25px;
+    }
+    .navbar-bag {
+      .bag {
+        .badge {
+          background-color: #777;
+          font-size: 10px;
+        }
+      }
+      .bag:hover,
+      .bag:focus {
+        .glyphicon {
+          color: $brand-primary;
+        }
+        .badge {
+          background-color: $brand-primary;
+        }
+      }
+    }
+  }
 }
 
 /* Small devices (tablets, 768px and up) */

@@ -14,8 +14,11 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="product col-xs-12 col-sm-6 col-md-4">
-                    <img src="{{ $product->imageURL() }}" class="img-responsive"/>
-                    <div class="name">{{ $product->name }}</div>
+                    <a href="{{ route('products.show', ['id' => $product->id]) }}"><img src="{{ $product->imageURL() }}"
+                                                                                        class="img-responsive"/></a>
+                    <div class="name"><a
+                                href="{{ route('products.show', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                    </div>
                     @if ($product->minimumPrice() == $product->maximumPrice())
                         <div class="price">{{ $product->minimumPrice() }} €</div>
                     @else

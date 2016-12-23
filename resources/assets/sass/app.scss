@@ -9,10 +9,13 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "theme";
+
 @import "layouts/app";
 @import "layouts/sidebar";
 
 @import "products/index";
+@import "products/show";
 @import "products/filter";
 
 /* Extra small devices (phones, less than 768px) */

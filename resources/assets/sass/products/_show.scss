@@ -1,20 +1,14 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
-
-body.products.index .product {
-  text-align: center;
-  margin-bottom: 50px;
+body.products.show .product {
   .name {
-    font-size: 16px;
-    a,
-    a:hover,
-    a:focus {
-      color: $header-text-color;
-      text-decoration: none;
-    }
+    margin: 0px;
+    font-size: 20px;
+    color: $header-text-color;
+    text-align: center;
   }
-  .price {
-
+  .reference {
+    font-size: 18px;
   }
 }
 
@@ -24,6 +18,12 @@ body.products.index .product {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
+  body.products.show .product {
+    .name {
+      font-size: 27px;
+      text-align: left;
+    }
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */

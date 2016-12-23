@@ -12,7 +12,7 @@
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="{{ $controller }} {{ $action }}">
 <nav class="navbar navbar-default navbar-fixed-top navbar-main">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -36,6 +36,14 @@
             </ul>
         </div>
         -->
+        <ul class="nav navbar-nav navbar-right navbar-bag">
+            <li>
+                <a href="#" class="bag">
+                    <span class="badge">0</span>
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 

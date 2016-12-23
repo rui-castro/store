@@ -18,21 +18,21 @@ $factory->define(Store\Product::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'description' => $faker->paragraph(),
         'type' => $faker->randomElement([
-            'Brincos',
-            'Aneis',
-            'Colares',
-            'Pulseiras'
+            'Earrings',
+            'Rings',
+            'Necklaces',
+            'Bracelets'
         ]),
         'collection' => $faker->randomElement([
-            'SWEETNESS',
-            'ORGANIC',
-            'OPTIMISTIC',
-            'GEOMETRIC',
-            'EXOTIC',
-            'ENGAGEMENT',
-            'CONFIDENCE',
-            'COMFORT',
-            'BALANCE'
+            'Sweetness',
+            'Organic',
+            'Optimistic',
+            'Geometric',
+            'Exotic',
+            'Engagement',
+            'Confidence',
+            'Comfort',
+            'Balance'
         ])
     ];
 });
