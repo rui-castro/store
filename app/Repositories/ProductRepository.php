@@ -88,8 +88,9 @@ class ProductRepository
     }
 
     /**
-     * Create a new Product from a Request.
-     * @param $attributes Product attributes.
+     * Create a new Product from attributes.
+     *
+     * @param array $attributes Product attributes.
      * @return Product the created Product.
      */
     public static function create($attributes)

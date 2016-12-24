@@ -60,7 +60,7 @@
                     </tr>
                     </tfoot>
                 </table>
-                <a class="btn btn-lg btn-primary pull-right" href="#">Checkout</a>
+                <a class="btn btn-lg btn-primary pull-right" href="{{ route('orders.create', [], false) }}">Checkout</a>
             @endif
         </div>
     </div>

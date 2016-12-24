@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('products.index');
-});
+Route::get(
+    '/',
+    function () {
+        return redirect()->route('products.index');
+    }
+);
 
 Route::resource(
     'products',
@@ -28,10 +31,19 @@ Route::resource(
     ['only' => ['show']]
 );
 */
-Route::get('bags', 'BagController@show')->name('bags.show');
+Route::get(
+    'bags',
+    'BagController@show'
+)->name('bags.show');
 
 Route::resource(
     'bag_items',
     'BagItemController',
-    ['only' => ['store','update', 'destroy']]
+    ['only' => ['store', 'update', 'destroy']]
+);
+
+Route::resource(
+    'orders',
+    'OrderController',
+    ['only' => ['create', 'store', 'show']]
 );

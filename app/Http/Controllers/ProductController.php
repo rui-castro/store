@@ -59,10 +59,9 @@ class ProductController extends Controller
     /**
      * Display a form to create a new product.
      *
-     * @param  Request $request
      * @return Response
      */
-    public function create(Request $request)
+    public function create()
     {
         return view('products.create');
     }
@@ -82,7 +81,7 @@ class ProductController extends Controller
 
         $product = $this->products->create($request->all());
 
-        return redirect('/products');
+        return redirect(route('products.show', ['id' => $product->id], false));
     }
 
 }

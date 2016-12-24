@@ -17,17 +17,23 @@
                 @endif
                 <form action="{{ route('bag_items.store') }}" method="POST">
                     {{ csrf_field() }}
-                    <input name="return_url" type="hidden" value="{{ route('products.show', ['id' => $product->id]) }}" />
-                    <div class="form-group">
-                        <label for="select-variant">Variant</label>
-                        <select name="variant_id" id="select-variant" class="form-control">
-                            @foreach($product->variants as $product_variant)
-                                <option value="{{ $product_variant->id }}"
-                                        data-price="{{ $product_variant->price + 0 }}
-                                        {{ ($product_variant->id == $variant->id) ? 'selected' : '' }}">{{ $product_variant->valuesAsString() }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <input name="return_url" type="hidden"
+                           value="{{ route('products.show', ['id' => $product->id]) }}"/>
+                    @if ($product->variants->count()==1)
+                        <input name="variant_id" type="hidden" value="{{ $variant->id }}"/>
+                    @else
+                        <div class="form-group">
+                            <label for="select-variant">Variant</label>
+                            <select name="variant_id" id="select-variant" class="form-control">
+                                @foreach($product->variants as $var)
+                                    <option value="{{ $var->id }}"
+                                            data-price="{{ $var->price + 0 }}"
+                                            {{ ($var->id == $variant->id) ? 'selected' : '' }}
+                                    >{{ $var->valuesAsString() }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
                         <input name="quantity" type="number" step="1" value="1" id="quantity" class="form-control"/>

@@ -10,7 +10,7 @@
 
     <!-- Product -->
         <h1>New product</h1>
-        <form action="{{ url('products') }}" method="POST" class="form" enctype="multipart/form-data">
+        <form action="{{ route('products.store', [], false) }}" method="POST" class="form" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <!-- Product Reference -->
@@ -64,7 +64,7 @@
 
             <!-- Add Product Button -->
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary pull-right">
                     <i class="fa fa-btn fa-plus"></i> Add Product
                 </button>
             </div>

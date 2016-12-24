@@ -11,14 +11,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @param Request $request
-     */
-    public function __construct(Request $request)
-    {
-        $request->session()->has('bag_id');
-    }
 }
