@@ -4,6 +4,7 @@ namespace Store\Repositories;
 
 use Store\Order;
 use Store\OrderItem;
+use Store\OrderItemValue;
 
 class OrderRepository
 {
@@ -35,7 +36,10 @@ class OrderRepository
     {
         $order = Order::create($attributes);
         foreach (BagRepository::getCurrent()->items as $bag_item) {
-            $order->items()->save(OrderItem::fromBagItem($bag_item));
+            $order_item = $order->items()->save(OrderItem::fromBagItem($bag_item));
+            foreach($bag_item->values as $value) {
+                $order_item->values()->save(OrderItemValue::fromVariantValue($value));
+            }
         }
         return $order;
     }

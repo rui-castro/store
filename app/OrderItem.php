@@ -47,6 +47,14 @@ class OrderItem extends Model
     }
 
     /**
+     * Get all of the OrderItemValue for the OrderItem.
+     */
+    public function values()
+    {
+        return $this->hasMany(OrderItemValue::class);
+    }
+
+    /**
      * Attribute 'product' accessible with '->product'.
      *
      * @return Product the Product.
@@ -73,12 +81,13 @@ class OrderItem extends Model
      */
     public static function fromBagItem(BagItem $bag_item)
     {
-        return new OrderItem([
+        $order_item = new OrderItem([
             'variant_id' => $bag_item->variant_id,
             'reference' => $bag_item->reference,
             'name' => $bag_item->name,
             'quantity' => $bag_item->quantity,
             'price' => $bag_item->variant->price,
         ]);
+        return $order_item;
     }
 }

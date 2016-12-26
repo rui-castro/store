@@ -33,6 +33,12 @@
                     <td class="name">{{ $item->name }}</td>
                     <td class="reference">{{ $item->reference }}</td>
                     <td class="options">
+                        <dl class="dl-horizontal">
+                            @foreach($item->values as $value)
+                                <dt>{{ $value->name }}</dt>
+                                <dd>{{ $value->value }}</dd>
+                            @endforeach
+                        </dl>
                     </td>
                     <td class="quantity">{{ $item->quantity }}</td>
                     <td class="price">{{ $item->price + 0 }} €</td>

@@ -22,27 +22,27 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($bag->items as $bag_item)
+                    @foreach($bag->items as $item)
                         <tr class="bag_item">
                             <td class="image"><a
-                                        href="{{ route('products.show', ['id' => $bag_item->product->id]) }}"><img
-                                            class="img-responsive" src="{{ $bag_item->imageURL }}"/></a></td>
+                                        href="{{ route('products.show', ['id' => $item->product->id]) }}"><img
+                                            class="img-responsive" src="{{ $item->imageURL }}"/></a></td>
                             <td class="name"><a
-                                        href="{{ route('products.show', ['id' => $bag_item->product->id]) }}">{{ $bag_item->name }}</a>
+                                        href="{{ route('products.show', ['id' => $item->product->id]) }}">{{ $item->name }}</a>
                             </td>
-                            <td class="reference">{{ $bag_item->reference }}</td>
+                            <td class="reference">{{ $item->reference }}</td>
                             <td class="options">
                                 <dl class="dl-horizontal">
-                                    @foreach($bag_item->values as $value)
+                                    @foreach($item->values as $value)
                                         <dt>{{ $value->name }}</dt>
                                         <dd>{{ $value->value }}</dd>
                                     @endforeach
                                 </dl>
                             </td>
-                            <td class="quantity">{{ $bag_item->quantity }}</td>
-                            <td class="price">{{ $bag_item->price + 0 }} €</td>
+                            <td class="quantity">{{ $item->quantity }}</td>
+                            <td class="price">{{ $item->price + 0 }} €</td>
                             <td>
-                                <form action="{{ route('bag_items.destroy', ['id' => $bag_item->id]) }}" method="POST">
+                                <form action="{{ route('bag_items.destroy', ['id' => $item->id]) }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="return_url" value="{{ route('bags.show') }}"/>
