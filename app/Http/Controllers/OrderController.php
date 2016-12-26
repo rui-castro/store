@@ -3,6 +3,8 @@
 namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Store\Mail\OrderReceived;
 use Store\Repositories\OrderRepository;
 
 class OrderController extends Controller
@@ -56,6 +58,8 @@ class OrderController extends Controller
         ]);
 
         $order = $this->orders->create($request->all());
+
+        Mail::to($order->email, $order->name)->send(new OrderReceived($order));
 
         return redirect(route('orders.show', ['id' => $order->id], false));
     }
