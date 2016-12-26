@@ -16,4 +16,26 @@ class Order extends Model
         'email',
         'notes',
     ];
+
+    /**
+     * Get all of the OrderItem for the Order.
+     */
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * Attribute 'price' accessible with '->price'.
+     *
+     * @return float the Order total price.
+     */
+    public function getPriceAttribute()
+    {
+        $total = 0;
+        foreach ($this->items as $item) {
+            $total += $item->price;
+        }
+        return $total;
+    }
 }

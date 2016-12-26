@@ -37,6 +37,11 @@ class Bag extends Model
         return $this->items->count() == 0;
     }
 
+    /**
+     * Attribute 'price' accessible with '->price'.
+     *
+     * @return float the Bag total price.
+     */
     public function getPriceAttribute()
     {
         $total = 0;

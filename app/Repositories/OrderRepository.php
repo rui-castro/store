@@ -3,6 +3,7 @@
 namespace Store\Repositories;
 
 use Store\Order;
+use Store\OrderItem;
 
 class OrderRepository
 {
@@ -32,7 +33,11 @@ class OrderRepository
      */
     public static function create($attributes)
     {
-        return Order::create($attributes);
+        $order = Order::create($attributes);
+        foreach (BagRepository::getCurrent()->items as $bag_item) {
+            $order->items()->save(OrderItem::fromBagItem($bag_item));
+        }
+        return $order;
     }
 
 }

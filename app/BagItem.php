@@ -27,7 +27,7 @@ class BagItem extends Model
     ];
 
     /**
-     * Get the Bag that owns the BagLine.
+     * Get the Bag that owns the BagItem.
      */
     public function bag()
     {
@@ -42,27 +42,63 @@ class BagItem extends Model
         return $this->belongsTo(Variant::class);
     }
 
-    public function getProductAttribute() {
+    /**
+     * Attribute 'product' accessible with '->product'.
+     *
+     * @return Product the Product.
+     */
+    public function getProductAttribute()
+    {
         return $this->variant->product;
     }
 
-    public function getReferenceAttribute() {
+    /**
+     * Attribute 'reference' accessible with '->reference'.
+     *
+     * @return string the Variant Product reference.
+     */
+    public function getReferenceAttribute()
+    {
         return $this->variant->product->reference;
     }
 
-    public function getNameAttribute() {
+    /**
+     * Attribute 'name' accessible with '->reference'.
+     *
+     * @return string the Variant Product name.
+     */
+    public function getNameAttribute()
+    {
         return $this->variant->product->name;
     }
 
-    public function getImageURLAttribute() {
+    /**
+     * Attribute 'imageURL' accessible with '->imageURL'.
+     *
+     * @return string the Variant Product image URL.
+     */
+    public function getImageURLAttribute()
+    {
         return $this->variant->product->imageURL;
     }
 
-    public function getValuesAttribute() {
+    /**
+     * Attribute 'values' accessible with '->values'.
+     *
+     * @return array the Variant's VariantValue array.
+     */
+    public function getValuesAttribute()
+    {
         return $this->variant->values;
     }
 
-    public function getPriceAttribute() {
+    /**
+     * Attribute 'price' accessible with '->price'.
+     *
+     * @return float the Variant price.
+     */
+    public function getPriceAttribute()
+    {
         return $this->variant->price;
     }
 }
