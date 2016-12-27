@@ -5,6 +5,7 @@ namespace Store\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Store\Mail\OrderReceived;
+use Store\Repositories\BagRepository;
 use Store\Repositories\OrderRepository;
 
 class OrderController extends Controller
@@ -59,6 +60,7 @@ class OrderController extends Controller
         ]);
 
         $order = $this->orders->create($request->all());
+        BagRepository::getCurrent()->clear();
 
         Mail::to($order->email, $order->name)->send(new OrderReceived($order));
 

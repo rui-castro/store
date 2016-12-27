@@ -50,4 +50,12 @@ class Bag extends Model
         }
         return $total;
     }
+
+    /**
+     * Remove all items from the Bag.
+     */
+    public function clear()
+    {
+        $this->items()->delete();
+    }
 }

@@ -1,15 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <!-- Bootstrap Boilerplate... -->
-
     <div class="container">
 
-        <!-- Display Validation Errors -->
-    @include('common.errors')
+        @include('common.errors')
 
-    <!-- Product -->
-        <h1>New order</h1>
+        <h1>Complete your order</h1>
+        @include('bags.bag')
         <form action="{{ route('orders.store') }}" method="POST" class="form">
             {{ csrf_field() }}
 
@@ -32,8 +29,8 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary pull-right">
-                    <i class="fa fa-btn fa-plus"></i> Confirm
+                <button type="submit" class="btn btn-lg btn-primary pull-right">
+                    <i class="fa fa-btn fa-plus"></i> Confirm order
                 </button>
             </div>
         </form>
