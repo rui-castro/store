@@ -23,6 +23,7 @@ class OrderController extends Controller
      */
     public function __construct(OrderRepository $orders)
     {
+        parent::__construct();
         $this->orders = $orders;
     }
 

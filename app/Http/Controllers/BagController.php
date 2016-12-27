@@ -21,6 +21,7 @@ class BagController extends Controller
      */
     public function __construct(BagRepository $bags)
     {
+        parent::__construct();
         $this->bags = $bags;
     }
 

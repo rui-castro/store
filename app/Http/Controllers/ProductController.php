@@ -21,6 +21,7 @@ class ProductController extends Controller
      */
     public function __construct(ProductRepository $products)
     {
+        parent::__construct();
         $this->products = $products;
     }
 
