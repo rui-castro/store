@@ -22,6 +22,7 @@
     <div class="container">
         <div class="logo"><img src="{{ $message->embed(public_path('images/logo-211x51.png')) }}"></div>
         <p>Dear {{ $order->name }},<br/>
+            <br/>
             Thank you for placing your order.<br/>
             <br/>
             Best regards,<br/>
