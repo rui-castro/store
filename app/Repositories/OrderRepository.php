@@ -35,13 +35,19 @@ class OrderRepository
     public static function create($attributes)
     {
         $order = Order::create($attributes);
-        foreach (BagRepository::getCurrent()->items as $bag_item) {
-            $order_item = $order->items()->save(OrderItem::fromBagItem($bag_item));
-            foreach($bag_item->values as $value) {
-                $order_item->values()->save(OrderItemValue::fromVariantValue($value));
+        $bag = BagRepository::getCurrent();
+        if ($bag->isEmpty()) {
+            abort(400, 'The bag is empty');
+        } else {
+            foreach ($bag->items as $bag_item) {
+                $order_item = $order->items()->save(OrderItem::fromBagItem($bag_item));
+                foreach ($bag_item->values as $value) {
+                    $order_item->values()->save(OrderItemValue::fromVariantValue($value));
+                }
             }
+            $bag->clear();
+            return $order;
         }
-        return $order;
     }
 
 }

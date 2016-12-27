@@ -38,5 +38,10 @@ Route::resource(
 Route::resource(
     'orders',
     'OrderController',
-    ['only' => ['create', 'store', 'show']]
+    ['only' => ['create', 'store']]
 );
+
+Route::get(
+    'orders/confirmation',
+    'OrderController@confirmation'
+)->name('orders.confirmation');

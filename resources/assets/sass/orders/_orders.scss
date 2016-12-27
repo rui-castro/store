@@ -1,0 +1,27 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+body.orders {
+  h1 {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: $header-text-color;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  body.orders {
+    h1 {
+      font-size: 27px;
+    }
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+}

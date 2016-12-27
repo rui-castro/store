@@ -1,13 +1,7 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
-body.orders.show {
-  h1 {
-    margin-top: 0px;
-    margin-bottom: 50px;
-    font-size: 20px;
-    color: $header-text-color;
-  }
-  table {
+.order {
+  table.table-order {
     thead {
       .options {
         text-align: center;
@@ -41,11 +35,6 @@ body.orders.show {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
-  body.orders.show {
-    h1 {
-      font-size: 27px;
-    }
-  }
 }
 
 /* Large devices (large desktops, 1200px and up) */

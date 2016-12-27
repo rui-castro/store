@@ -3,9 +3,9 @@
 namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Store\Mail\OrderReceived;
-use Store\Repositories\BagRepository;
 use Store\Repositories\OrderRepository;
 
 class OrderController extends Controller
@@ -60,23 +60,23 @@ class OrderController extends Controller
         ]);
 
         $order = $this->orders->create($request->all());
-        BagRepository::getCurrent()->clear();
+        $request->session()->put('order_id', $order->id);
 
         Mail::to($order->email, $order->name)->send(new OrderReceived($order));
 
-        return redirect(route('orders.show', ['id' => $order->id], false));
+        return redirect(route('orders.confirmation'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function confirmation(Request $request)
     {
-        return view('orders.show', [
-            'order' => $this->orders->get($id),
+        return view('orders.confirmation', [
+            'order' => $this->orders->get($request->session()->get('order_id')),
         ]);
     }
 
