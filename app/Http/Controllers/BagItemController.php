@@ -42,7 +42,7 @@ class BagItemController extends Controller
         ]);
 
         $bag_item = $this->bags->addItem($request->all());
-        return redirect($request->input('return_url', url('/')));
+        return redirect($request->input('return_url', route('root')));
     }
 
     /**
@@ -55,7 +55,7 @@ class BagItemController extends Controller
     public function destroy(Request $request, $id)
     {
         $this->bags->removeItem($id);
-        return redirect($request->input('return_url', url('/')));
+        return redirect($request->input('return_url', route('root')));
     }
 
 }

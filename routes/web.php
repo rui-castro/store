@@ -16,7 +16,7 @@ Route::get(
     function () {
         return redirect()->route('products.index');
     }
-);
+)->name('root');
 
 Route::resource(
     'products',
@@ -24,13 +24,6 @@ Route::resource(
     ['only' => ['index', 'show', 'create', 'store']]
 );
 
-/*
-Route::resource(
-    'bags',
-    'BagController',
-    ['only' => ['show']]
-);
-*/
 Route::get(
     'bags',
     'BagController@show'
