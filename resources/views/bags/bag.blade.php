@@ -33,7 +33,7 @@
             <td>
                 <form action="{{ route('bag_items.destroy', ['id' => $item->id]) }}" method="POST">
                     {{ csrf_field() }}
-                    <input type="hidden" name="_method" value="DELETE">
+                    {{ method_field('DELETE') }}
                     <input type="hidden" name="return_url" value="{{ route('bags.show') }}"/>
                     <button class="btn"><span class="glyphicon glyphicon-remove"></span></button>
                 </form>

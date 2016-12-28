@@ -36,7 +36,7 @@
                                   action="{{ route('admin.products.destroy', ['id' => $product->id]) }}" method="POST"
                                   data-confirm-message="Delete product '{{ $product->name }}'?">
                                 {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="DELETE">
+                                {{ method_field('DELETE') }}
                                 <input type="hidden" name="return_url" value="{{ route('admin.products.index') }}"/>
                                 <button class="btn"><span class="glyphicon glyphicon-remove"></span></button>
                             </form>
