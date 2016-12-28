@@ -3,7 +3,6 @@
 namespace Store\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Store\Http\Controllers\Controller;
 use Store\Product;
 use Store\Repositories\ProductRepository;
