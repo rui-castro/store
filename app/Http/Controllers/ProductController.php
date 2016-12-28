@@ -57,32 +57,4 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Display a form to create a new product.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        return view('products.create');
-    }
-
-    /**
-     * Create a new product.
-     *
-     * @param  Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'reference' => 'required|unique:products|max:255',
-            'name' => 'required|max:255',
-        ]);
-
-        $product = $this->products->create($request->all());
-
-        return redirect(route('products.show', ['id' => $product->id], false));
-    }
-
 }

@@ -21,7 +21,7 @@ Route::get(
 Route::resource(
     'products',
     'ProductController',
-    ['only' => ['index', 'show', 'create', 'store']]
+    ['only' => ['index', 'show']]
 );
 
 Route::get(
@@ -45,3 +45,21 @@ Route::get(
     'orders/confirmation',
     'OrderController@confirmation'
 )->name('orders.confirmation');
+
+// Admin area
+
+Route::get('admin', function () {
+    return redirect('/admin/products');
+});
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'namespace' => 'Admin'
+], function () {
+    Route::resource(
+        'products',
+        'ProductController',
+        ['except' => ['show']]
+    );
+});

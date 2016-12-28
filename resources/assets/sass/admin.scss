@@ -13,19 +13,7 @@
 
 @import "admin/layouts/app";
 @import "admin/products/index";
-
-@import "layouts/app";
-@import "layouts/sidebar";
-
-@import "bags/bag";
-@import "bags/show";
-
-@import "orders/order";
-@import "orders/orders";
-
-@import "products/index";
-@import "products/show";
-@import "products/filter";
+@import "admin/products/form_fields";
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */

@@ -93,9 +93,27 @@ class ProductRepository
      * @param array $attributes Product attributes.
      * @return Product the created Product.
      */
-    public static function create($attributes)
+    public function create($attributes)
     {
         return ProductRepository::attachImage(Product::create($attributes), $attributes['image']);
+    }
+
+    /**
+     * Update an existing Product from attributes.
+     *
+     * @param integer $id the product ID.
+     * @param array $attributes Product attributes.
+     * @return Product the updated Product.
+     */
+    public function update($id, $attributes)
+    {
+        $product = Product::find($id);
+        $product->fill($attributes);
+        $product->save();
+        if (isset($attributes['image'])) {
+            $product = $this->attachImage($product, $attributes['image']);
+        }
+        return $product;
     }
 
     /**
