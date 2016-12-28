@@ -1,14 +1,12 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-body.admin.products.index {
-  table.products {
-    tr.product {
-      td.image {
-        img {
-          max-width: 100px;
-        }
-      }
+body.admin.products.edit {
+  .tab-content {
+    margin-top: 25px;
+  }
+  table.variants {
+    tr.variant {
       td.actions {
         text-align: right;
         .form-inline {

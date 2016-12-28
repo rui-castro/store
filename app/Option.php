@@ -28,7 +28,8 @@ class Option extends Model
      */
     public function products()
     {
-        return $this->hasManyThrough(Product::class, ProductOption::class);
+        // return $this->hasManyThrough(Product::class, ProductOption::class);
+        return $this->belongsToMany(Product::class, 'product_options');
     }
 
     /**

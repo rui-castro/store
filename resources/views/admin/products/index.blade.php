@@ -1,9 +1,7 @@
 @extends('admin.layouts.app')
-
-@include('common.errors')
-
 @section('content')
     <div class="container">
+        @include('common.errors')
         @if (count($products) == 0)
             <h4>No products!</h4>
         @else

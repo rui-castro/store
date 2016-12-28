@@ -1,13 +1,31 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="container">
-        @include('common.errors')
-
         <h1>Edit "{{ $product->name }}"</h1>
-        <form action="{{ route('admin.products.update', ['id' => $product->id], false) }}" method="POST" class="form"
-              enctype="multipart/form-data">
-            {{ method_field('PUT') }}
-            @include('admin.products.form_fields')
-        </form>
-    </div><!-- container -->
+        <div class="product-variants">
+        @include('common.errors')
+        <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#product" aria-controls="product" role="tab"
+                                                          data-toggle="tab">Product</a></li>
+                <li role="presentation"><a href="#variants" aria-controls="variants" role="tab"
+                                           data-toggle="tab">Variants</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="product">
+                    @include('admin.products.form', [
+                        'url' => route('admin.products.update', ['id' => $product->id], false),
+                        'method' => 'PUT'
+                    ])
+                </div>
+                <div role="tabpanel" class="tab-pane" id="variants">
+                    @include('admin.variants._index', [
+                        'product' => $product,
+                        'variants' => $product->variants,
+                    ])
+                </div>
+            </div>
+        </div><!-- .product-variants -->
+    </div><!-- .container -->
 @endsection

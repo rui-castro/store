@@ -7733,6 +7733,30 @@ body.admin .container {
 /* Large devices (large desktops, 1200px and up) */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+body.admin.products.edit .tab-content {
+  margin-top: 25px;
+}
+
+body.admin.products.edit table.variants tr.variant td.actions {
+  text-align: right;
+}
+
+body.admin.products.edit table.variants tr.variant td.actions .form-inline {
+  display: inline-block;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+body.admin.products form .form-group-image .preview {
+  max-width: 250px;
+}
+
+body.admin.products form .btn-cancel + .btn-save {
+  margin-left: 15px;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 body.admin.products.index table.products tr.product td.image img {
   max-width: 100px;
 }
@@ -7745,22 +7769,6 @@ body.admin.products.index table.products tr.product td.actions .form-inline {
   display: inline-block;
 }
 
-/* Small devices (tablets, 768px and up) */
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-body.admin.products form .form-group-image .preview {
-  max-width: 250px;
-}
-
-body.admin.products form .btn-cancel + .btn-save {
-  margin-left: 15px;
-}
-
-/* Small devices (tablets, 768px and up) */
-/* Medium devices (desktops, 992px and up) */
-/* Large devices (large desktops, 1200px and up) */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 /* Small devices (tablets, 768px and up) */

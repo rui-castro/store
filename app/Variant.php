@@ -52,4 +52,15 @@ class Variant extends Model
         return implode(" | ", $values);
     }
 
+    /**
+     * Get the VariantValue for the given Option.
+     *
+     * @param Option $option the Option.
+     * @return VariantValue the VariantValue.
+     */
+    public function value(Option $option)
+    {
+        return $this->values->where('option_id', $option->id)->first();
+    }
+
 }

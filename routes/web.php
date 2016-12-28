@@ -62,4 +62,9 @@ Route::group([
         'ProductController',
         ['except' => ['show']]
     );
+    Route::resource(
+        'variants',
+        'ProductVariantController',
+        ['except' => ['index']]
+    );
 });
