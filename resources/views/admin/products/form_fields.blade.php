@@ -31,7 +31,7 @@
 </div>
 <div class="form-group form-group-image">
     <label for="product-image" class="control-label">Image</label>
-    @if ($product->imageURL)
+    @if ($product->image_file_name)
         <div class="preview">
             <img class="img-responsive" src="{{ $product->imageURL }}"/>
             {{ $product->image_file_name }} ({{ $product->image_file_size  }} bytes)

@@ -47,7 +47,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        return view('admin.products.create', [
+            'product' => new Product()
+        ]);
     }
 
     /**
