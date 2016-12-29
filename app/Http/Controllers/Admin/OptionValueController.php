@@ -24,7 +24,9 @@ class OptionValueController extends Controller
      */
     public function __construct(OptionRepository $options)
     {
-        parent::__construct();
+        //parent::__construct();
+        $this->middleware('auth');
+        $this->middleware('auth.admin');
         $this->options = $options;
     }
 

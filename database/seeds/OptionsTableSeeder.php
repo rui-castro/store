@@ -13,20 +13,20 @@ class OptionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $option_color = Option::create(['name' => 'color']);
+        $option_color = Option::create(['name' => 'Color']);
         OptionValue::create([
             'option_id' => $option_color->id,
-            'value' => 'yellow'
+            'value' => 'Yellow'
         ]);
         OptionValue::create([
             'option_id' => $option_color->id,
-            'value' => 'white'
+            'value' => 'White'
         ]);
         OptionValue::create([
             'option_id' => $option_color->id,
-            'value' => 'pink'
+            'value' => 'Pink'
         ]);
-        $option_karat = Option::create(['name' => 'karat']);
+        $option_karat = Option::create(['name' => 'Karat']);
         OptionValue::create([
             'option_id' => $option_karat->id,
             'value' => '8',

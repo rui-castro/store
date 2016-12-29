@@ -3,6 +3,7 @@
 namespace Store\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Store\Http\Middleware\AdminAuthorization;
 
 class Kernel extends HttpKernel
 {
@@ -57,5 +58,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Store\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        // Admin authorization
+        'auth.admin' => AdminAuthorization::class,
     ];
 }

@@ -23,7 +23,9 @@ class ProductController extends Controller
      */
     public function __construct(ProductRepository $products)
     {
-        parent::__construct();
+        // parent::__construct();
+        $this->middleware('auth');
+        $this->middleware('auth.admin');
         $this->products = $products;
     }
 

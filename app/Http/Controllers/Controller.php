@@ -18,7 +18,7 @@ class Controller extends BaseController
     {
         $closed = filter_var(env('APP_CLOSED', 'false'), FILTER_VALIDATE_BOOLEAN);
         if ($closed) {
-            $this->middleware('auth.basic');
+            $this->middleware('auth');
         }
     }
 

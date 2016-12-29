@@ -21,7 +21,9 @@ class OrderController extends Controller
      */
     public function __construct(OrderRepository $orders)
     {
-        parent::__construct();
+        // parent::__construct();
+        $this->middleware('auth');
+        $this->middleware('auth.admin');
         $this->orders = $orders;
     }
 

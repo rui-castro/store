@@ -1,0 +1,13 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+.navbar-main {
+  .navbar-header:after {
+    clear: none;
+  }
+  .navbar-brand > img {
+    height: 25px;
+  }
+}
+
+// .navbar-main

@@ -1,0 +1,31 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+.navbar-main {
+  .navbar-header:after {
+    clear: none;
+  }
+  .navbar-brand > img {
+    height: 25px;
+  }
+  .bag {
+    .glyphicon {
+      color: $text-color;
+    }
+    .badge {
+      background-color: $text-color;
+      font-size: 10px;
+    }
+  }
+  .bag:hover,
+  .bag:focus {
+    background-color: transparent;
+    .glyphicon {
+      color: $brand-primary;
+    }
+    .badge {
+      background-color: $brand-primary;
+    }
+  }
+}
+// .navbar-main

@@ -2,63 +2,12 @@
 /* No media query since this is the default in Bootstrap */
 
 body {
-  padding-top: 100px;
+  #app {
+    padding-top: 100px;
 
-  .navbar-main {
-    .navbar-header:after {
-      clear: none;
+    .container {
+      padding-bottom: 15px;
     }
-    .navbar-brand > img {
-      height: 25px;
-    }
-    .navbar-bag {
-      float: right;
-      .bag {
-        .glyphicon {
-          color: $text-color;
-        }
-        .badge {
-          background-color: $text-color;
-          font-size: 10px;
-        }
-      }
-      .bag:hover,
-      .bag:focus {
-        background-color: transparent;
-        .glyphicon {
-          color: $brand-primary;
-        }
-        .badge {
-          background-color: $brand-primary;
-        }
-      }
-    }
+    // .container
   }
-  // .navbar-main
-
-  .container {
-    padding-bottom: 15px;
-  }
-  // .container
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm-min) {
-  body {
-    .navbar-main {
-      .navbar-bag {
-        float: none;
-      }
-    }
-  }
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: $screen-md-min) {
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: $screen-lg-min) {
-
 }

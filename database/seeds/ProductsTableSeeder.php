@@ -32,8 +32,8 @@ class ProductsTableSeeder extends Seeder
                     Storage::disk('local')->size($image_file_path)
                 ));
 
-            $option_color = Option::whereName('color')->first();
-            $option_karat = Option::whereName('karat')->first();
+            $option_color = Option::whereName('Color')->first();
+            $option_karat = Option::whereName('Karat')->first();
             ProductOption::create([
                 'product_id' => $product->id,
                 'option_id' => $option_color->id

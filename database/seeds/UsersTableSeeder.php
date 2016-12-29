@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder
         ]);
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@galeiras.pt',
+            'email' => 'store@galeiras.pt',
             'password' => Hash::make('g4l31r4s!2017')
-        ]);
+        ])->update(['admin' => true]);
    }
 }

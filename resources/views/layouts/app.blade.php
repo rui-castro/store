@@ -6,49 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Galeiras - Store</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Galeiras - Store') }}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" sizes="16x16"/>
 
+    <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 </head>
 
 <body class="{{ $route_parts }}">
-<nav class="navbar navbar-default navbar-fixed-top navbar-main">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('root') }}">
-                <img alt="Galeiras" src="{{ asset('images/logo-211x51.png') }}"/>
-            </a>
-            <!--
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            -->
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!--
-        <div class="collapse navbar-collapse" id="navbar-main-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-            </ul>
-        </div>
-        -->
-        <ul class="nav navbar-right navbar-bag">
-            <li>
-                <a href="{{ route('bags.show') }}" class="bag">
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
-                    <span class="badge">{{ $bag->items()->count() }}</span>
+<div id="app">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-main">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ route('root') }}">
+                    <img alt="Galeiras" src="{{ asset('images/logo-211x51.png') }}"/>
                 </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+            </div>
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                @include('layouts.navbar')
+            </div>
+        </div>
+    </nav>
 
-@yield('content')
+    @yield('content')
+</div>
 
+<!-- Scripts -->
 <script src="{{ elixir('js/app.js') }}"></script>
 </body>
 </html>
