@@ -5,12 +5,15 @@ body.admin.options.edit {
   .tab-content {
     margin-top: 25px;
   }
-  table.option_values {
-    tr.variant {
-      td.actions {
-        text-align: right;
-        .form-inline {
-          display: inline-block;
+  .option_values {
+    clear: both;
+    table.option_values {
+      tr.variant {
+        td.actions {
+          text-align: right;
+          .form-inline {
+            display: inline-block;
+          }
         }
       }
     }

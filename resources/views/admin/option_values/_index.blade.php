@@ -1,6 +1,6 @@
 <div class="option_values">
-    <a class="btn pull-right"
-       href="{{ route('admin.options.option_values.create', ['option_id' => $option->id]) }}">New option</a>
+    <!--<a class="btn pull-right"
+       href="{{ route('admin.options.option_values.create', ['option_id' => $option->id]) }}">New value</a>-->
     @if (count($option->values) == 0)
         <h4>No values!</h4>
     @else
@@ -37,6 +37,6 @@
             </tbody>
         </table>
         <a class="btn pull-right"
-           href="{{ route('admin.options.option_values.create', ['option_id' => $option->id]) }}">New option</a>
+           href="{{ route('admin.options.option_values.create', ['option_id' => $option->id]) }}">New value</a>
     @endif
 </div>

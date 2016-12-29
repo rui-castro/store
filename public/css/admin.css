@@ -7737,11 +7737,15 @@ body.admin.options.edit .tab-content {
   margin-top: 25px;
 }
 
-body.admin.options.edit table.option_values tr.variant td.actions {
+body.admin.options.edit .option_values {
+  clear: both;
+}
+
+body.admin.options.edit .option_values table.option_values tr.variant td.actions {
   text-align: right;
 }
 
-body.admin.options.edit table.option_values tr.variant td.actions .form-inline {
+body.admin.options.edit .option_values table.option_values tr.variant td.actions .form-inline {
   display: inline-block;
 }
 
