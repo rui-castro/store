@@ -17,7 +17,9 @@
                 <tbody>
                 @foreach ($options as $option)
                     <tr class="option">
-                        <td class="name">{{ $option->name }}</td>
+                        <td class="name">
+                            <a href="{{ route('admin.options.edit', ['id' => $option->id]) }}">{{ $option->name }}</a>
+                        </td>
                         <td class="actions">
                             <a class="btn btn-warning"
                                href="{{ route('admin.options.edit', ['id' => $option->id]) }}"><span

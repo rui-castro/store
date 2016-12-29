@@ -21,9 +21,17 @@
                 <tbody>
                 @foreach ($products as $product)
                     <tr class="product">
-                        <td class="image"><img src="{{ $product->imageURL() }}" class="img-responsive"/></td>
-                        <td class="name">{{ $product->name }}</td>
-                        <td class="reference">{{ $product->reference }}</td>
+                        <td class="image">
+                            <a href="{{ route('admin.products.edit', ['id' => $product->id]) }}">
+                                <img src="{{ $product->imageURL() }}" class="img-responsive"/>
+                            </a>
+                        </td>
+                        <td class="name">
+                            <a href="{{ route('admin.products.edit', ['id' => $product->id]) }}">{{ $product->name }}</a>
+                        </td>
+                        <td class="reference">
+                            <a href="{{ route('admin.products.edit', ['id' => $product->id]) }}">{{ $product->reference }}</a>
+                        </td>
                         <td class="type">{{ $product->type }}</td>
                         <td class="collection">{{ $product->collection }}</td>
                         <td class="actions">

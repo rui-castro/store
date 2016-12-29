@@ -1,13 +1,13 @@
 <ul class="nav navbar-nav">
     @if (Auth::check())
     @endif
-    <li @if (starts_with(Route::currentRouteName(), 'admin.orders.index')) class="active" @endif>
+    <li @if (starts_with(Route::currentRouteName(), 'admin.orders')) class="active" @endif>
         <a href="{{ route('admin.orders.index', [], false) }}">Orders</a>
     </li>
-    <li @if (starts_with(Route::currentRouteName(), 'admin.products.index')) class="active" @endif>
+    <li @if (starts_with(Route::currentRouteName(), 'admin.products')) class="active" @endif>
         <a href="{{ route('admin.products.index', [], false) }}">Products</a>
     </li>
-    <li @if (starts_with(Route::currentRouteName(), 'admin.options.index')) class="active" @endif>
+    <li @if (starts_with(Route::currentRouteName(), 'admin.options')) class="active" @endif>
         <a href="{{ route('admin.options.index', [], false) }}">Options</a>
     </li>
 </ul>
