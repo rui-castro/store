@@ -42,6 +42,19 @@
         <input type="file" name="image" id="product-image" class="form-control"
                value="{{ old('image') }}">
     </div>
+    @inject('optionClass', 'Store\Option')
+    <div class="form-group form-group-options">
+        <label for="options" class="control-label">Options</label>
+        @foreach($optionClass::all() as $option)
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="options[]"
+                           value="{{ $option->id }}" {{ in_array($option->id, $product->options->pluck('id')->toArray())? 'checked':'' }} />
+                    {{ $option->name }}
+                </label>
+            </div>
+        @endforeach
+    </div>
     <div class="form-group pull-right">
         <a class="btn btn-info btn-cancel" href="{{ route('admin.products.index') }}">Cancel</a>
         <button type="submit" class="btn btn-primary btn-save">Save</button>

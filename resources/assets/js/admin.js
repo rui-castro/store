@@ -22,4 +22,5 @@ const app = new Vue({
 });
 */
 
+require('./admin/products/edit');
 require('./admin/products/index');

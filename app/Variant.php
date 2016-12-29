@@ -60,7 +60,8 @@ class Variant extends Model
      */
     public function value(Option $option)
     {
-        return $this->values->where('option_id', $option->id)->first();
+        $variant_value = $this->values->where('option_id', $option->id)->first();
+        return $variant_value ? $variant_value->value : null;
     }
 
 }

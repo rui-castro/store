@@ -11,7 +11,10 @@ class VariantValue extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'option_id',
+        'option_value_id',
+    ];
 
     /**
      * The attributes that should be cast to native types.

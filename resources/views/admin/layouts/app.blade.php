@@ -15,7 +15,7 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-main">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('root') }}">
+            <a class="navbar-brand" href="{{ route('admin') }}">
                 <img alt="Galeiras" src="{{ asset('images/logo-211x51.png') }}"/>
             </a>
             <!--

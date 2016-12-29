@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Store\OptionValue;
 use Store\Product;
+use Store\Variant;
+use Store\VariantValue;
 
 class ProductRepository
 {
@@ -114,6 +117,44 @@ class ProductRepository
             $product = $this->attachImage($product, $attributes['image']);
         }
         return $product;
+    }
+
+    /**
+     * Create a Variant.
+     *
+     * @param array $attributes the attributes.
+     * @return Variant the created Variant.
+     */
+    public function createVariant($attributes)
+    {
+        $product = Product::find($attributes['product_id']);
+        $variant = $product->variants()->create($attributes);
+
+        foreach ($attributes['values'] as $value_attributes) {
+            $value_attributes['option_id'] = OptionValue::find($value_attributes['option_value_id'])->option->id;
+            $variant->values()->create($value_attributes);
+        }
+        return $variant;
+    }
+
+    /**
+     * Update an existing Variant from attributes.
+     *
+     * @param integer $id the Variant ID.
+     * @param array $attributes Variant attributes.
+     * @return Variant the updated Variant.
+     */
+    public function updateVariant($id, $attributes)
+    {
+        $variant = Variant::find($id);
+        $variant->fill($attributes);
+        $variant->save();
+        foreach ($attributes['values'] as $value_attributes) {
+            $value = VariantValue::find($value_attributes['id']);
+            $value->fill($value_attributes);
+            $value->save();
+        }
+        return $variant;
     }
 
     /**

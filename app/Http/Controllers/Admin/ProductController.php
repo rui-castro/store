@@ -65,6 +65,7 @@ class ProductController extends Controller
         ]);
 
         $product = $this->products->create($request->all());
+        $product->options()->sync($request->input('options'));
 
         return redirect(route('admin.products.index', [], false));
     }
@@ -97,6 +98,7 @@ class ProductController extends Controller
         ]);
 
         $product = $this->products->update($id, $request->all());
+        $product->options()->sync($request->input('options'));
 
         return redirect(route('admin.products.index', [], false));
     }

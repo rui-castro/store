@@ -3,8 +3,14 @@
 namespace Store\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Store\Http\Controllers\Controller;
+use Store\Option;
+use Store\OptionValue;
+use Store\Product;
 use Store\Repositories\ProductRepository;
+use Store\Variant;
+use Store\VariantValue;
 
 class ProductVariantController extends Controller
 {
@@ -29,11 +35,28 @@ class ProductVariantController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param int $product_id the Product ID.
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($product_id)
     {
-        //
+        $product = Product::find($product_id);
+
+        $values = array();
+        foreach ($product->options as $option) {
+            $value = new VariantValue();
+            $value->option = $option;
+            $values[] = $value;
+        }
+
+        $variant = new Variant();
+        $variant->product = $product;
+        $variant->values = $values;
+
+        return view('admin.variants.create', [
+            'product' => $product,
+            'variant' => $variant
+        ]);
     }
 
     /**
@@ -44,18 +67,15 @@ class ProductVariantController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'product_id' => 'required|integer',
+            'price' => 'required|numeric|min:0',
+            'values.*.option_value_id' => 'required|integer'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $this->products->createVariant($request->all());
+
+        return redirect(route('admin.products.edit', ['id' => $request->input('product_id')], false) . '#variants');
     }
 
     /**
@@ -66,7 +86,9 @@ class ProductVariantController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.variants.edit', [
+            'variant' => Variant::find($id)
+        ]);
     }
 
     /**
@@ -78,17 +100,27 @@ class ProductVariantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'product_id' => 'required|integer',
+            'price' => 'required|numeric|min:0',
+            'values.*.option_value_id' => 'required|integer'
+        ]);
+
+        $this->products->updateVariant($id, $request->all());
+
+        return redirect(route('admin.products.edit', ['id' => $request->input('product_id')], false) . '#variants');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int $productId
+     * @param  int $variantId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($productId, $variantId)
     {
-        //
+        Variant::destroy($variantId);
+        return redirect(route('admin.products.edit', ['id' => $productId], false) . "#variants");
     }
 }

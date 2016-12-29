@@ -50,7 +50,7 @@ Route::get(
 
 Route::get('admin', function () {
     return redirect('/admin/products');
-});
+})->name('admin');
 
 Route::group([
     'prefix' => 'admin',
@@ -63,8 +63,13 @@ Route::group([
         ['except' => ['show']]
     );
     Route::resource(
+        'products.variants',
+        'ProductVariantController',
+        ['only' => ['create', 'destroy']]
+    );
+    Route::resource(
         'variants',
         'ProductVariantController',
-        ['except' => ['index']]
+        ['except' => ['index', 'create', 'destroy']]
     );
 });

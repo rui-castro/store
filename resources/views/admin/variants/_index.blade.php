@@ -1,10 +1,10 @@
 <div class="variants">
+    <a class="btn pull-right" href="{{ route('admin.products.variants.create', ['product_id' => $product->id]) }}">New
+        variant</a>
     @if (count($product->variants) == 0)
         <h4>No variants!</h4>
     @else
         <h4>{{ count($product->variants) }} variants</h4>
-        <a class="btn pull-right" href="{{ route('admin.variants.create', ['product_id' => $product->id]) }}">New
-            variant</a>
         <table class="table variants">
             <thead>
             <tr>
@@ -20,14 +20,14 @@
                 <tr class="variant">
                     <td class="price">{{ $variant->price }}</td>
                     @foreach($product->options as $option)
-                        <td class="option {{ $option->name }}">{{ $variant->value($option)->value }}</td>
+                        <td class="option {{ $option->name }}">{{ $variant->value($option) }}</td>
                     @endforeach
                     <td class="actions">
                         <a class="btn btn-warning"
                            href="{{ route('admin.variants.edit', ['id' => $variant->id]) }}"><span
                                     class="glyphicon glyphicon-edit"></span></a>
                         <form class="form-inline form-delete-variant"
-                              action="{{ route('admin.variants.destroy', ['id' => $variant->id]) }}"
+                              action="{{ route('admin.products.variants.destroy', ['productId' => $variant->product->id, 'variantId' => $variant->id]) }}"
                               method="POST"
                               data-confirm-message="Delete variant '{{ $variant->id }}'?">
                             {{ csrf_field() }}
@@ -41,6 +41,6 @@
             </tbody>
         </table>
         <a class="btn pull-right"
-           href="{{ route('admin.variants.create', ['product_id' => $product->id]) }}">New variant</a>
+           href="{{ route('admin.products.variants.create', ['product_id' => $product->id]) }}">New variant</a>
     @endif
 </div>
