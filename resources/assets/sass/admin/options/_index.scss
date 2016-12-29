@@ -1,0 +1,23 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+body.admin.options.index {
+  table.options {
+    tr.option {
+      td {
+        vertical-align: middle;
+      }
+      td.image {
+        img {
+          max-width: 100px;
+        }
+      }
+      td.actions {
+        text-align: right;
+        .form-inline {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

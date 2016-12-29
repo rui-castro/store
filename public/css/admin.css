@@ -7733,6 +7733,24 @@ body.admin .container {
 /* Large devices (large desktops, 1200px and up) */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+body.admin.options.index table.options tr.option td {
+  vertical-align: middle;
+}
+
+body.admin.options.index table.options tr.option td.image img {
+  max-width: 100px;
+}
+
+body.admin.options.index table.options tr.option td.actions {
+  text-align: right;
+}
+
+body.admin.options.index table.options tr.option td.actions .form-inline {
+  display: inline-block;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 .order table.table-order thead .options {
   text-align: center;
 }

@@ -80,6 +80,6 @@ Route::group([
     Route::resource(
         'options',
         'OptionController',
-        ['only' => ['index']]
+        ['except' => ['show']]
     );
 });
