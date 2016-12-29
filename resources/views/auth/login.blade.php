@@ -54,11 +54,9 @@
                                     <button type="submit" class="btn btn-primary">
                                         Login
                                     </button>
-                                    @if(false)
-                                        <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                            Forgot Your Password?
-                                        </a>
-                                    @endif
+                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                        Forgot Your Password?
+                                    </a>
                                 </div>
                             </div>
                         </form>
