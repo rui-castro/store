@@ -70,6 +70,16 @@ Route::group([
     Route::resource(
         'variants',
         'ProductVariantController',
-        ['except' => ['index', 'create', 'destroy']]
+        ['only' => ['store', 'edit', 'update']]
+    );
+    Route::resource(
+        'orders',
+        'OrderController',
+        ['only' => ['index', 'show']]
+    );
+    Route::resource(
+        'options',
+        'OptionController',
+        ['only' => ['index']]
     );
 });

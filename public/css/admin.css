@@ -7733,6 +7733,32 @@ body.admin .container {
 /* Large devices (large desktops, 1200px and up) */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+.order table.table-order thead .options {
+  text-align: center;
+}
+
+.order table.table-order .order_item td {
+  vertical-align: middle;
+}
+
+.order table.table-order .order_item .image img {
+  max-width: 100px;
+}
+
+.order table.table-order .order_item .options dl {
+  margin-bottom: 0px;
+}
+
+.order table.table-order tfoot tr {
+  font-weight: bold;
+}
+
+.order table.table-order tfoot tr .total {
+  text-align: right;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 body.admin.products.edit .tab-content {
   margin-top: 25px;
 }
@@ -7757,6 +7783,10 @@ body.admin.products form .btn-cancel + .btn-save {
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+body.admin.products.index table.products tr.product td {
+  vertical-align: middle;
+}
+
 body.admin.products.index table.products tr.product td.image img {
   max-width: 100px;
 }

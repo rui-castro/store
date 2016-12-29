@@ -9,10 +9,6 @@ body.orders {
   }
 }
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm-min) {
-}
-
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
   body.orders {
@@ -20,8 +16,4 @@ body.orders {
       font-size: 27px;
     }
   }
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: $screen-lg-min) {
 }

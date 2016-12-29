@@ -7,7 +7,7 @@
         @else
             <h4>{{ count($products) }} products</h4>
             <a class="btn pull-right" href="{{ route('admin.products.create') }}">New product</a>
-            <table class="table products">
+            <table class="table table-striped table-hover products">
                 <thead>
                 <tr>
                     <th class="image">Image</th>

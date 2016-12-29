@@ -4,6 +4,9 @@
 body.admin.products.index {
   table.products {
     tr.product {
+      td {
+        vertical-align: middle;
+      }
       td.image {
         img {
           max-width: 100px;

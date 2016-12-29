@@ -5,7 +5,7 @@
         <h4>No variants!</h4>
     @else
         <h4>{{ count($product->variants) }} variants</h4>
-        <table class="table variants">
+        <table class="table table-striped table-hover variants">
             <thead>
             <tr>
                 <th class="price">Price</th>

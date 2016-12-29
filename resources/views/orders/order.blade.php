@@ -9,7 +9,7 @@
             <dd>{{ $order->notes }}</dd>
         @endif
     </dl>
-    <table class="table table-order">
+    <table class="table table-striped table-order">
         <thead>
         <tr>
             <th class="image"></th>
