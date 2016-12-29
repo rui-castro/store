@@ -2,6 +2,7 @@
 
 namespace Store\Providers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Route;
 use Store\Repositories\BagRepository;
@@ -26,6 +27,13 @@ class AppServiceProvider extends ServiceProvider
             // Inject bag into the view
             $view->with(['bag' => BagRepository::getCurrent()]);
         });
+
+        /* Workaround to enforce foreign key on SQLite
+         * See: http://stackoverflow.com/a/31228951/2602440
+         */
+        if (DB::connection() instanceof \Illuminate\Database\SQLiteConnection) {
+            DB::statement(DB::raw('PRAGMA foreign_keys=1'));
+        }
     }
 
     /**

@@ -16,7 +16,13 @@ class CreateOrderItemsTable extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id')->index();
-            $table->integer('variant_id')->index();
+            $table->foreign('order_id')->references('id')->on('orders')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->integer('variant_id')->index()->nullable();
+            $table->foreign('variant_id')->references('id')->on('variants')
+                ->onDelete('SET NULL')
+                ->onUpdate('cascade');
             $table->string('reference');
             $table->string('name');
             $table->integer('quantity');

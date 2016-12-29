@@ -16,8 +16,17 @@ class CreateVariantValuesTable extends Migration
         Schema::create('variant_values', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('variant_id')->index();
+            $table->foreign('variant_id')->references('id')->on('variants')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('option_id')->index();
+            $table->foreign('option_id')->references('id')->on('options')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
             $table->integer('option_value_id')->index();
+            $table->foreign('option_value_id')->references('id')->on('option_values')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
             $table->timestamps();
             $table->unique(['variant_id', 'option_id', 'option_value_id']);
         });

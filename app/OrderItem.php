@@ -61,7 +61,11 @@ class OrderItem extends Model
      */
     public function getProductAttribute()
     {
-        return $this->variant->product;
+        $product = null;
+        if ($this->variant) {
+            $product = $this->variant->product;
+        }
+        return $product;
     }
 
     /**
@@ -71,7 +75,11 @@ class OrderItem extends Model
      */
     public function getImageURLAttribute()
     {
-        return $this->product->imageURL;
+        $imageURL = null;
+        if ($this->product) {
+            $imageURL = $this->product->imageURL;
+        }
+        return $imageURL;
     }
 
     /**

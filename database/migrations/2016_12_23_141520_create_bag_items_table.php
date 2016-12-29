@@ -17,6 +17,9 @@ class CreateBagItemsTable extends Migration
             $table->increments('id');
             $table->integer('bag_id')->index();
             $table->integer('variant_id')->index();
+            $table->foreign('variant_id')->references('id')->on('variants')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->integer('quantity');
             $table->timestamps();
         });

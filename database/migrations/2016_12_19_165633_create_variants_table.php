@@ -16,6 +16,9 @@ class CreateVariantsTable extends Migration
         Schema::create('variants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->index();
+            $table->foreign('product_id')->references('id')->on('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->float('price');
             $table->timestamps();
         });
