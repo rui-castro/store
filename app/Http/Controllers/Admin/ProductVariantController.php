@@ -3,10 +3,7 @@
 namespace Store\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Store\Http\Controllers\Controller;
-use Store\Option;
-use Store\OptionValue;
 use Store\Product;
 use Store\Repositories\ProductRepository;
 use Store\Variant;

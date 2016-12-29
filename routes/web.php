@@ -82,4 +82,9 @@ Route::group([
         'OptionController',
         ['except' => ['show']]
     );
+    Route::resource(
+        'options.option_values',
+        'OptionValueController',
+        ['only' => ['create', 'store', 'edit', 'update', 'destroy']]
+    );
 });

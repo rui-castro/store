@@ -7733,6 +7733,20 @@ body.admin .container {
 /* Large devices (large desktops, 1200px and up) */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+body.admin.options.edit .tab-content {
+  margin-top: 25px;
+}
+
+body.admin.options.edit table.option_values tr.variant td.actions {
+  text-align: right;
+}
+
+body.admin.options.edit table.option_values tr.variant td.actions .form-inline {
+  display: inline-block;
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 body.admin.options.index table.options tr.option td {
   vertical-align: middle;
 }

@@ -3,6 +3,7 @@
 namespace Store\Repositories;
 
 use Store\Option;
+use Store\OptionValue;
 
 class OptionRepository
 {
@@ -44,10 +45,37 @@ class OptionRepository
      */
     public function update($id, $attributes)
     {
-        $product = Option::find($id);
-        $product->fill($attributes);
-        $product->save();
-        return $product;
+        $option = Option::find($id);
+        $option->fill($attributes);
+        $option->save();
+        return $option;
+    }
+
+    /**
+     * Create a OptionValue.
+     *
+     * @param integer $optionId the Option ID.
+     * @param array $attributes the attributes.
+     * @return OptionValue the created OptionValue.
+     */
+    public function createValue($optionId, $attributes)
+    {
+        return Option::find($optionId)->values()->create($attributes);
+    }
+
+    /**
+     * Update an existing OptionValue from attributes.
+     *
+     * @param integer $id the OptionValue ID.
+     * @param array $attributes OptionValue attributes.
+     * @return OptionValue the updated OptionValue.
+     */
+    public function updateValue($id, $attributes)
+    {
+        $optionValue = OptionValue::find($id);
+        $optionValue->fill($attributes);
+        $optionValue->save();
+        return $optionValue;
     }
 
 }
