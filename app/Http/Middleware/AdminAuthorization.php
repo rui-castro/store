@@ -34,18 +34,9 @@ class AdminAuthorization
      */
     public function handle($request, Closure $next)
     {
-        Log::debug('$this->auth->user(): ' . print_r($this->auth->user(), true));
-
-        if ($this->auth->user()->admin) {
-            Log::debug('$this->auth->user()->admin: TRUE');
-        } else {
-            Log::debug('$this->auth->user()->admin: FALSE');
-        }
-
         if (!$this->auth->user()->admin) {
             return redirect(route('root', [], false));
         }
-
         return $next($request);
     }
 }
