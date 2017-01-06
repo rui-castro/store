@@ -1,13 +1,44 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-body {
-  #app {
-    padding-top: 100px;
+html {
+  min-height: 100%;
+  height: 100%;
+}
 
-    .container {
+body {
+  min-height: 100%;
+  height: 100%;
+
+  background-color: #efefef;
+
+  #app {
+    min-height: 100%;
+    height: 100%;
+
+    padding-top: 81px;
+
+    > .container {
+      min-height: 100%;
+
+      padding-top: 15px;
       padding-bottom: 15px;
+
+      background-color: #ffffff;
+      border-left: 1px solid #dddddd;
+      border-right: 1px solid #dddddd;
     }
-    // .container
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  body {
+    #app {
+      padding-top: 131px;
+      > .container {
+        padding-top: 50px;
+      }
+    }
   }
 }

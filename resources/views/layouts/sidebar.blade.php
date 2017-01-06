@@ -1,13 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="container layout-sidebar layout-sidebar-left">
-        <div class="navbar navbar-default navbar-sidebar visible-xs">
-            <div class="container">
-                <a data-toggle="collapse" data-target="#sidebar">
-                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                </a>
-            </div>
-        </div>
+        <a data-toggle="collapse" data-target="#sidebar">
+            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Filters
+        </a>
         <div class="row">
             <div id="sidebar"
                  class="col-xs-6 col-sm-3 visible-sm visible-md visible-lg collapse sliding-sidebar">

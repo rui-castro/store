@@ -2,30 +2,85 @@
 /* No media query since this is the default in Bootstrap */
 
 .navbar-main {
-  .navbar-header:after {
-    clear: none;
-  }
-  .navbar-brand > img {
-    height: 25px;
-  }
-  .bag {
-    .glyphicon {
-      color: $text-color;
+  margin-bottom: 0px;
+  border-bottom: none;
+  background-color: transparent;
+
+  > .container {
+    background-color: #ffffff;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+
+    .navbar-header:after {
+      clear: none;
     }
-    .badge {
-      background-color: $text-color;
-      font-size: 10px;
+
+    .navbar-header {
+      float: none;
+      .navbar-brand {
+        float: none;
+        display: block;
+        height: 81px;
+        margin: 0px;
+        padding: 15px;
+        text-align: center;
+        > img {
+          display: inline;
+          height: 51px;
+          margin: auto;
+        }
+      }
     }
-  }
-  .bag:hover,
-  .bag:focus {
-    background-color: transparent;
-    .glyphicon {
-      color: $brand-primary;
-    }
-    .badge {
-      background-color: $brand-primary;
+
+    .navbar-collapse {
+      background-color: #e6e6e6;
+      .navbar-right {
+        margin-right: 0px;
+      }
+      a {
+        text-transform: uppercase;
+      }
+      a:hover,
+      a:focus,
+      .active > a {
+        color: #156863;
+        background-color: transparent;
+      }
+      .active {
+        a:hover,
+        a:focus {
+          color: #156863;
+          background-color: transparent;
+        }
+      }
+      .bag {
+        .glyphicon {
+          color: $text-color;
+        }
+        .badge {
+          background-color: $text-color;
+          font-size: 10px;
+        }
+      }
+      .bag:hover,
+      .bag:focus {
+        background-color: transparent;
+        .glyphicon {
+          color: #156863;
+        }
+        .badge {
+          background-color: #156863;
+        }
+      }
+    } // .navbar-collapse
+  } // .container
+}  // .navbar-main
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  .navbar-main {
+    > .container {
+      padding: 0px;
     }
   }
 }
-// .navbar-main
