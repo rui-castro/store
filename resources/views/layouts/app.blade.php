@@ -24,6 +24,7 @@
 </head>
 
 <body class="{{ $route_parts }}">
+@include('common.analyticstracking')
 <div id="app">
     @include('layouts.navbar')
     @yield('content')
