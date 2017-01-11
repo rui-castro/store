@@ -94,7 +94,7 @@ class OrderItem extends Model
             'reference' => $bag_item->reference,
             'name' => $bag_item->name,
             'quantity' => $bag_item->quantity,
-            'price' => $bag_item->variant->price,
+            'price' => $bag_item->variant->price * $bag_item->quantity,
         ]);
         return $order_item;
     }
