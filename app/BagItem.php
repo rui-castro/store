@@ -99,6 +99,6 @@ class BagItem extends Model
      */
     public function getPriceAttribute()
     {
-        return $this->variant->price;
+        return $this->variant->price * $this->quantity;
     }
 }

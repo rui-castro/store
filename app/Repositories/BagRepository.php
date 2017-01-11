@@ -53,6 +53,7 @@ class BagRepository
         $bag_item = $bag->items()->where('variant_id', $attributes['variant_id'])->first();
         if ($bag_item) {
             $bag_item->quantity += $attributes['quantity'];
+            $bag_item->save();
         } else {
             $bag_item = $bag->items()->create($attributes);
         }
