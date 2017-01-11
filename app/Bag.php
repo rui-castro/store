@@ -52,6 +52,20 @@ class Bag extends Model
     }
 
     /**
+     * Attribute 'totalCount' accessible with '->totalCount'.
+     *
+     * @return int the total number of items in the Bag.
+     */
+    public function getTotalCountAttribute()
+    {
+        $total = 0;
+        foreach ($this->items as $item) {
+            $total += $item->quantity;
+        }
+        return $total;
+    }
+
+    /**
      * Remove all items from the Bag.
      */
     public function clear()

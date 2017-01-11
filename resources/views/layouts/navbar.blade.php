@@ -35,7 +35,7 @@
                     <li>
                         <a href="{{ route('bags.show') }}" class="bag">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
-                            <span class="badge">{{ $bag->items()->count() }}</span>
+                            <span class="badge">{{ $bag->totalCount }}</span>
                         </a>
                     </li>
                     <li class="dropdown">
