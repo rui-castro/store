@@ -14,7 +14,7 @@
             <select id="value" name="values[{{ $index }}][option_value_id]" class="form-control">
                 @foreach($value->option->values as $option_value)
                     <option value="{{ $option_value->id }}"
-                            {{ $value->optionValue->id == $option_value->id ? 'selected' : '' }}
+                            {{ $value->optionValue && ($value->optionValue->id == $option_value->id) ? 'selected' : '' }}
                     >{{ $option_value->value }}</option>
                 @endforeach
             </select>
