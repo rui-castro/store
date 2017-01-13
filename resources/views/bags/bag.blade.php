@@ -6,6 +6,7 @@
         <th class="reference">Reference</th>
         <th class="options">Options</th>
         <th class="quantity">Quantity</th>
+        <th class="notes">Notes</th>
         <th class="price">Price</th>
         <th></th>
     </tr>
@@ -29,6 +30,7 @@
                 </dl>
             </td>
             <td class="quantity">{{ $item->quantity }}</td>
+            <td class="notes">{{ $item->notes }}</td>
             <td class="price">{{ $item->price + 0 }} €</td>
             <td>
                 <form action="{{ route('bag_items.destroy', ['id' => $item->id]) }}" method="POST">

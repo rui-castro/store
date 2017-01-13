@@ -13,7 +13,8 @@ class BagItem extends Model
      */
     protected $fillable = [
         'variant_id',
-        'quantity'
+        'quantity',
+        'notes',
     ];
 
     /**

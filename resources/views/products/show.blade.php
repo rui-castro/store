@@ -38,6 +38,11 @@
                         <label for="quantity">Quantity</label>
                         <input name="quantity" type="number" step="1" value="1" id="quantity" class="form-control"/>
                     </div>
+                    <div class="form-group">
+                        <label for="notes" class="control-label">Notes</label>
+                        <textarea name="notes" id="notes" class="form-control"
+                                  rows="2">{{ old('notes') }}</textarea>
+                    </div>
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Add to bag</button>
                     <a class="btn btn-lg btn-block btn-back-to-products" href="{{ route('products.index') }}">Back to products</a>
                 </form>

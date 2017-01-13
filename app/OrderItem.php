@@ -17,6 +17,7 @@ class OrderItem extends Model
         'reference',
         'name',
         'quantity',
+        'notes',
         'price',
     ];
 
@@ -94,6 +95,7 @@ class OrderItem extends Model
             'reference' => $bag_item->reference,
             'name' => $bag_item->name,
             'quantity' => $bag_item->quantity,
+            'notes' => $bag_item->notes,
             'price' => $bag_item->variant->price * $bag_item->quantity,
         ]);
         return $order_item;
