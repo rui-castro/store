@@ -9,6 +9,18 @@ body.products.show .product {
   .reference {
     font-size: 18px;
   }
+  .btn-back-to-products {
+    background-color: white;
+    transition: background-color 0.5s ease;
+    color: #000000;
+  }
+  .btn-back-to-products:hover,
+  .btn-back-to-products:focus,
+  .btn-back-to-products.focus {
+    color: #fff;
+    background-color: $brand-primary;
+    transition: background-color 0.5s ease;
+  }
 }
 
 /* Small devices (tablets, 768px and up) */

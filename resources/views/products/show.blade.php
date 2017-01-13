@@ -39,6 +39,7 @@
                         <input name="quantity" type="number" step="1" value="1" id="quantity" class="form-control"/>
                     </div>
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Add to bag</button>
+                    <a class="btn btn-lg btn-block btn-back-to-products" href="{{ route('products.index') }}">Back to products</a>
                 </form>
             </div>
         </div>
