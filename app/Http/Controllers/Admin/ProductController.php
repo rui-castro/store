@@ -100,7 +100,7 @@ class ProductController extends Controller
         ]);
 
         $product = $this->products->update($id, $request->all());
-        $product->options()->sync($request->input('options'));
+        $product->options()->sync($request->input('options') == null ? [] : $request->input('options'));
 
         return redirect(route('admin.products.index', [], false));
     }

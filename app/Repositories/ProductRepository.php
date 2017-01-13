@@ -130,9 +130,11 @@ class ProductRepository
         $product = Product::find($attributes['product_id']);
         $variant = $product->variants()->create($attributes);
 
-        foreach ($attributes['values'] as $value_attributes) {
-            $value_attributes['option_id'] = OptionValue::find($value_attributes['option_value_id'])->option->id;
-            $variant->values()->create($value_attributes);
+        if (array_key_exists('values', $attributes)) {
+            foreach ($attributes['values'] as $value_attributes) {
+                $value_attributes['option_id'] = OptionValue::find($value_attributes['option_value_id'])->option->id;
+                $variant->values()->create($value_attributes);
+            }
         }
         return $variant;
     }

@@ -42,9 +42,9 @@
         <input type="file" name="image" id="product-image" class="form-control"
                value="{{ old('image') }}">
     </div>
-    @inject('optionClass', 'Store\Option')
     <div class="form-group form-group-options">
         <label for="options" class="control-label">Options</label>
+        @inject('optionClass', 'Store\Option')
         @foreach($optionClass::all() as $option)
             <div class="checkbox">
                 <label>
