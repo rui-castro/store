@@ -51,7 +51,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <a class="btn pull-right" href="{{ route('admin.products.create') }}">New product</a>
         @endif
+        <a class="btn pull-right" href="{{ route('admin.products.create') }}">New product</a>
     </div>
 @endsection

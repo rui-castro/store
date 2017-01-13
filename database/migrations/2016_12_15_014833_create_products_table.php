@@ -21,6 +21,11 @@ class CreateProductsTable extends Migration
             $table->string('type')->nullable();
             $table->string('collection')->nullable();
             $table->string('notes')->nullable();
+            $table->string('image_file_path')->nullable();
+            $table->string('image_file_name')->nullable()->after('image_file_path');;
+            $table->integer('image_file_size')->nullable()->after('image_file_name');
+            $table->string('image_content_type')->nullable()->after('image_file_size');
+            $table->timestamp('image_updated_at')->nullable()->after('image_content_type');
             $table->timestamps();
         });
     }
@@ -32,6 +37,7 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::drop('products');
+        //Schema::dropIfExists('products');
     }
 }

@@ -31,6 +31,6 @@ class CreateVariantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variant');
+        Schema::dropIfExists('variants');
     }
 }

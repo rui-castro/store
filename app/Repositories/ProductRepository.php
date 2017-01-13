@@ -64,7 +64,7 @@ class ProductRepository
     {
         $parameters = $this->queryString2Parameters($request);
         $queryCollections = $this->whereParameters(
-            DB::table('products')->select(DB::raw("$column as name, count(*) as count")),
+            Product::has('variants')->select(DB::raw("$column as name, count(*) as count")),
             $parameters
         )->groupBy($column);
 
