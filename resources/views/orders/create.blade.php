@@ -18,8 +18,9 @@
 
             <div class="form-group">
                 <label for="email" class="control-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control"
-                       value="{{ old('email') }}">
+                <!-- type should be "email". It's not to allow multiple addresses. -->
+                <input type="text" name="email" id="email" class="form-control"
+                       value="{{ old('email') }}" placeholder="client@example.com, alternative@example.com">
             </div>
 
             <div class="form-group">

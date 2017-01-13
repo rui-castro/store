@@ -55,14 +55,15 @@ class OrderController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            // 'email' => 'required|email|max:255',
+            'email' => 'required',
             // 'notes' => '',
         ]);
 
         $order = $this->orders->create($request->all());
         $request->session()->put('order_id', $order->id);
 
-        Mail::to($order->email, $order->name)->send(new OrderReceived($order));
+        Mail::to(explode(',', $order->email), $order->name)->send(new OrderReceived($order));
 
         return redirect(route('orders.confirmation'));
     }
