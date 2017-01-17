@@ -23,7 +23,7 @@
                     <tr class="product">
                         <td class="image">
                             <a href="{{ route('admin.products.edit', ['id' => $product->id]) }}">
-                                <img src="{{ $product->imageURL() }}" class="img-responsive"/>
+                                <img src="{{ $product->imageURL }}" class="img-responsive"/>
                             </a>
                         </td>
                         <td class="name">
