@@ -98,7 +98,10 @@ class ProductRepository
      */
     public function create($attributes)
     {
-        return ProductRepository::attachImage(Product::create($attributes), $attributes['image']);
+        return ProductRepository::attachImage(
+            Product::create($attributes),
+            $attributes['image']
+        );
     }
 
     /**
@@ -157,6 +160,15 @@ class ProductRepository
             $value->save();
         }
         return $variant;
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        if ($product->image_file_path) {
+            Storage::delete($product->image_file_path);
+        }
     }
 
     /**

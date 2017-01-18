@@ -113,7 +113,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
+        $this->products->destroy($id);
         return redirect(route('admin.products.index'));
     }
 }
