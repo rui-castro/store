@@ -11,8 +11,8 @@
         .container .order_item .image img {
             max-width: 100px;
         }
-        table tbody tr th,
-        table tbody tr td {
+        table th,
+        table td {
             text-align: left;
         }
         table tbody tr td {
