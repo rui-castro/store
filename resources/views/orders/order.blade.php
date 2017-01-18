@@ -35,14 +35,14 @@
                 </td>
                 <td class="quantity">{{ $item->quantity }}</td>
                 <td class="notes">{{ $item->notes }}</td>
-                <td class="price">{{ $item->price + 0 }} €</td>
+                <td class="price">{{ $item->price + 0 }}€</td>
             </tr>
         @endforeach
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="5" class="total">Total</td>
-            <td class="price">{{ $order->price }} €</td>
+            <td colspan="6" class="total">Total</td>
+            <td class="price">{{ $order->price }}€</td>
         </tr>
         </tfoot>
     </table>

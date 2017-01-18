@@ -13,12 +13,19 @@
         }
         table th,
         table td {
-            text-align: left;
-        }
-        table tbody tr td {
             padding: 8px;
             line-height: 1.6;
+            text-align: left;
+        }
+        table tbody td,
+        table tfoot td {
             border-top: 1px solid #ddd;
+        }
+        table tfoot {
+            font-weight: bold;
+        }
+        table tfoot .total {
+            text-align: right;
         }
     </style>
 @endsection
@@ -70,14 +77,14 @@
                     </td>
                     <td class="quantity">{{ $item->quantity }}</td>
                     <td class="notes">{{ $item->notes }}</td>
-                    <td class="price">{{ $item->price + 0 }} €</td>
+                    <td class="price">{{ $item->price + 0 }}€</td>
                 </tr>
             @endforeach
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="5" class="total">Total</td>
-                <td class="price">{{ $order->price }} €</td>
+                <td colspan="6" class="total">Total</td>
+                <td class="price">{{ $order->price }}€</td>
             </tr>
             </tfoot>
         </table>

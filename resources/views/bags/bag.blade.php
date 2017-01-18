@@ -29,7 +29,7 @@
             </td>
             <td class="quantity">{{ $item->quantity }}</td>
             <td class="notes">{{ $item->notes }}</td>
-            <td class="price">{{ $item->price + 0 }} €</td>
+            <td class="price">{{ $item->price + 0 }}€</td>
             <td>
                 <form action="{{ route('bag_items.destroy', ['id' => $item->id]) }}" method="POST">
                     {{ csrf_field() }}
@@ -43,8 +43,8 @@
     </tbody>
     <tfoot>
     <tr>
-        <td colspan="5" class="total">Total</td>
-        <td class="price">{{ $bag->price }} €</td>
+        <td colspan="6" class="total">Total</td>
+        <td class="price">{{ $bag->price }}€</td>
         <td></td>
     </tr>
     </tfoot>
