@@ -11,6 +11,10 @@
         .container .order_item .image img {
             max-width: 100px;
         }
+        table tbody tr th,
+        table tbody tr td {
+            text-align: left;
+        }
         table tbody tr td {
             padding: 8px;
             line-height: 1.6;
