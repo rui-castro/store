@@ -14,7 +14,7 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="product col-xs-12 col-sm-6 col-md-4">
-                    <a href="{{ route('products.show', ['id' => $product->id]) }}"><img src="{{ $product->imageURL() }}"
+                    <a href="{{ route('products.show', ['id' => $product->id]) }}"><img src="{{ $product->imageURL }}"
                                                                                         class="img-responsive"/></a>
                     <div class="name"><a
                                 href="{{ route('products.show', ['id' => $product->id]) }}">{{ $product->name }}</a>

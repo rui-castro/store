@@ -3,6 +3,7 @@
 namespace Store;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
@@ -57,23 +58,13 @@ class Product extends Model
     }
 
     /**
-     * Get the product image URL.
+     * Attribute 'imageURL' accessible with '->imageURL'.
      *
-     * @return string
-     */
-    public function imageURL()
-    {
-        return Storage::url($this->image_file_path);
-    }
-
-    /**
-     * Get the product image URL.
-     *
-     * @return string
+     * @return string the product image URL.
      */
     public function getImageURLAttribute()
     {
-        return Storage::url($this->image_file_path);
+        return $this->image_file_path ? Storage::url($this->image_file_path) : null;
     }
 
 }
