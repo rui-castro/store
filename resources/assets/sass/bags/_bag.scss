@@ -1,11 +1,6 @@
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 .table-bag {
-  thead {
-    .options {
-      text-align: center;
-    }
-  }
   .bag_item {
     td {
       vertical-align: middle;
@@ -14,9 +9,12 @@
       max-width: 100px;
     }
     .options {
-      dl {
-        margin-bottom: 0px;
+      .name {
+        font-weight: bold;
       }
+    }
+    .price {
+      white-space: nowrap;
     }
   }
   tfoot tr {

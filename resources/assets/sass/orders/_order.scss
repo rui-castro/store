@@ -2,11 +2,6 @@
 /* No media query since this is the default in Bootstrap */
 .order {
   table.table-order {
-    thead {
-      .options {
-        text-align: center;
-      }
-    }
     .order_item {
       td {
         vertical-align: middle;
@@ -15,9 +10,12 @@
         max-width: 100px;
       }
       .options {
-        dl {
-          margin-bottom: 0px;
+        .name {
+          font-weight: bold;
         }
+      }
+      .price {
+        white-space: nowrap;
       }
     }
     tfoot tr {

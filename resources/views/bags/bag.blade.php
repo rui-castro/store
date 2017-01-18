@@ -22,12 +22,10 @@
             </td>
             <td class="reference">{{ $item->reference }}</td>
             <td class="options">
-                <dl class="dl-horizontal">
-                    @foreach($item->values as $value)
-                        <dt>{{ $value->name }}</dt>
-                        <dd>{{ $value->value }}</dd>
-                    @endforeach
-                </dl>
+                @foreach($item->values as $value)
+                    <div><span class="name">{{ $value->name }}: </span><span
+                                class="value">{{ $value->value }}</span></div>
+                @endforeach
             </td>
             <td class="quantity">{{ $item->quantity }}</td>
             <td class="notes">{{ $item->notes }}</td>
