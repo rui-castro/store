@@ -45,7 +45,7 @@ class Product extends Model
     public function minimumPrice()
     {
         $variant = $this->variants()->orderBy('price', 'asc')->first();
-        return $variant ? $variant->price : null;
+        return $variant ? $variant->price + 0 : null;
     }
 
     /**
@@ -54,7 +54,7 @@ class Product extends Model
     public function maximumPrice()
     {
         $variant = $this->variants()->orderBy('price', 'desc')->first();
-        return $variant ? $variant->price : null;
+        return $variant ? $variant->price + 0 : null;
     }
 
     /**

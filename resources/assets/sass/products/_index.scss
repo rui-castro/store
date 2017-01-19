@@ -4,6 +4,15 @@
 body.products.index .product {
   text-align: center;
   margin-bottom: 50px;
+  > a {
+    display: block;
+    height: 300px;
+    line-height: 300px;
+    > img {
+      display: inline-block;
+      max-height: 300px;
+    }
+  }
   .name {
     font-size: 16px;
     a,
