@@ -98,10 +98,11 @@ class ProductRepository
      */
     public function create($attributes)
     {
-        return ProductRepository::attachImage(
-            Product::create($attributes),
-            $attributes['image']
-        );
+        $product = Product::create($attributes);
+        if (isset($attributes['image'])) {
+            $product = $this->attachImage($product, $attributes['image']);
+        }
+        return $product;
     }
 
     /**
