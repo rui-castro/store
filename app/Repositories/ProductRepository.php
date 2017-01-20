@@ -21,7 +21,7 @@ class ProductRepository
      */
     public function all()
     {
-        return Product::orderBy('created_at', 'desc')->get();
+        return Product::orderBy('reference', 'asc')->get();
     }
 
     /**
