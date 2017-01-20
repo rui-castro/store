@@ -66,7 +66,7 @@
             <tbody>
             @foreach($order->items as $item)
                 <tr class="order_item">
-                    <td class="image"><img class="img-responsive" src="{{ url($item->imageURL) }}"/></td>
+                    <td class="image"><img class="img-responsive" src="{{ $item->imageURL ? url($item->imageURL) : null }}"/></td>
                     <td class="name">{{ $item->name }}</td>
                     <td class="reference">{{ $item->reference }}</td>
                     <td class="options">
