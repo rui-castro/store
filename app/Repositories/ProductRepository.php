@@ -173,7 +173,7 @@ class ProductRepository
     }
 
     /**
-     * Create a new Product from a Request.
+     * Attach an image to a Product.
      * @param $product Product the Product.
      * @param $image UploadedFile the image.
      * @return Product the Product.

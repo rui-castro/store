@@ -64,6 +64,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'reference' => 'required|unique:products|max:255',
             'name' => 'required|max:255',
+            'image' => 'mimes:jpeg,jpg,png',
         ]);
 
         $product = $this->products->create($request->all());
@@ -97,6 +98,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'reference' => "required|unique:products,reference,$id|max:255",
             'name' => 'required|max:255',
+            'image' => 'mimes:jpeg,jpg,png',
         ]);
 
         $product = $this->products->update($id, $request->all());
